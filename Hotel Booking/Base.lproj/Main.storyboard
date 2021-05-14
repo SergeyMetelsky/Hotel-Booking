@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZE1-ee-KAV">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZE1-ee-KAV">
                                 <rect key="frame" x="0.0" y="90" width="375" height="372"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -40,17 +40,60 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehZ-Io-3Ox">
+                                <rect key="frame" x="320" y="20" width="35" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="gCJ-Nk-wKT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" red="0.12777310610000001" green="0.17151173950000001" blue="0.2296947241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="skipButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vlp-QZ-ykj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dk1-8Q-6Pg">
+                                <rect key="frame" x="48" y="607" width="279" height="40"/>
+                                <color key="backgroundColor" red="0.94739645719999999" green="0.25566780569999997" blue="0.1923385859" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="WIe-JP-0OD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CtQ-k6-K54"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nVO-dx-3mT">
+                                <rect key="frame" x="126" y="525" width="123" height="28"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" red="0.94739645719999999" green="0.25566780569999997" blue="0.1923385859" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Dk1-8Q-6Pg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="4iY-06-abo"/>
                             <constraint firstItem="ZE1-ee-KAV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="9en-DB-mQx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dk1-8Q-6Pg" secondAttribute="trailing" constant="48" id="ELK-CI-8Qg"/>
                             <constraint firstItem="ZE1-ee-KAV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GKA-oP-WFd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dk1-8Q-6Pg" secondAttribute="bottom" constant="20" id="Gdg-gQ-b7Q"/>
                             <constraint firstItem="ZE1-ee-KAV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NCe-Bh-Tey"/>
+                            <constraint firstItem="ehZ-Io-3Ox" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Pct-kX-Gj4"/>
+                            <constraint firstItem="ehZ-Io-3Ox" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="150" id="RKK-Tq-wds"/>
+                            <constraint firstItem="nVO-dx-3mT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bat-0b-nax"/>
+                            <constraint firstItem="Dk1-8Q-6Pg" firstAttribute="top" secondItem="nVO-dx-3mT" secondAttribute="bottom" constant="54" id="enk-ST-VEJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ehZ-Io-3Ox" secondAttribute="trailing" constant="20" id="sWC-HU-Wue"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="ZE1-ee-KAV" id="94u-4L-RMe"/>
+                        <outlet property="nextButton" destination="Dk1-8Q-6Pg" id="Q56-CR-Bhw"/>
+                        <outlet property="pageControl" destination="nVO-dx-3mT" id="CXl-Gs-Lwy"/>
+                        <outlet property="skipButton" destination="ehZ-Io-3Ox" id="6IG-57-5Vc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

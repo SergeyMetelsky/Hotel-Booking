@@ -10,8 +10,12 @@ import UIKit
 class OnboardingViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     var onboarding: Onboarding = Onboarding()
+    var onboardingPage: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +23,28 @@ class OnboardingViewController: UIViewController {
         self.collectionView.register(UINib(nibName: "OnboardingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "OnboardingCollectionViewCell")
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+    }
+    
+    @IBAction func skipButtonPressed(_ sender: UIButton) {
+    }
+    @IBAction func nextButtonPressed(_ sender: UIButton) {
+        if onboardingPage != onboarding.pages.count {
+            let indexPath = IndexPath(row: onboardingPage, section: 0)
+            pageControl.currentPage = onboardingPage
+// без нижней и через одну строку код не работает. Баг в XCod который давно не правят
+            self.collectionView.isPagingEnabled = false
+            self.collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
+            self.collectionView.isPagingEnabled = true
+            onboardingPage += 1
+            
+            if onboardingPage == 3 {
+                skipButton.setTitle("Done", for: .normal)
+                nextButton.setTitle("Get Started", for: .normal)
+            }
+        } else {
+// конец экранов Onboarding. Переход на экран Register
+            return
+        }
     }
 }
 
