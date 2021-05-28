@@ -9,20 +9,24 @@
 /* Begin PBXBuildFile section */
 		A54CAFE9264E7EC300C29522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54CAFE8264E7EC300C29522 /* AppDelegate.swift */; };
 		A54CAFEB264E7EC300C29522 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54CAFEA264E7EC300C29522 /* SceneDelegate.swift */; };
-		A54CAFF0264E7EC300C29522 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54CAFEE264E7EC300C29522 /* Main.storyboard */; };
+		A54CAFF0264E7EC300C29522 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54CAFEE264E7EC300C29522 /* Onboarding.storyboard */; };
 		A54CAFF2264E7EC400C29522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A54CAFF1264E7EC400C29522 /* Assets.xcassets */; };
 		A54CAFF5264E7EC400C29522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54CAFF3264E7EC400C29522 /* LaunchScreen.storyboard */; };
 		A596EA36264E8217006A0BDB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A596EA35264E8217006A0BDB /* OnboardingViewController.swift */; };
 		A596EA3D264E8467006A0BDB /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A596EA3B264E8467006A0BDB /* OnboardingCollectionViewCell.swift */; };
 		A596EA3E264E8467006A0BDB /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A596EA3C264E8467006A0BDB /* OnboardingCollectionViewCell.xib */; };
 		A596EA42264E8B9C006A0BDB /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A596EA41264E8B9C006A0BDB /* Onboarding.swift */; };
+		A5BE73CC2661021A0033D58F /* CofirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BE73CB2661021A0033D58F /* CofirmationViewController.swift */; };
+		A5E73360264FD3F4003924E1 /* RegisterLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5E7335F264FD3F4003924E1 /* RegisterLogin.storyboard */; };
+		A5E73366264FE349003924E1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E73365264FE349003924E1 /* RegisterViewController.swift */; };
+		A5E7336A264FE3D6003924E1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E73369264FE3D6003924E1 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A54CAFE5264E7EC300C29522 /* Hotel Booking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hotel Booking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A54CAFE8264E7EC300C29522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A54CAFEA264E7EC300C29522 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A54CAFEF264E7EC300C29522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A54CAFEF264E7EC300C29522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
 		A54CAFF1264E7EC400C29522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A54CAFF4264E7EC400C29522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A54CAFF6264E7EC400C29522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -30,6 +34,10 @@
 		A596EA3B264E8467006A0BDB /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		A596EA3C264E8467006A0BDB /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
 		A596EA41264E8B9C006A0BDB /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		A5BE73CB2661021A0033D58F /* CofirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CofirmationViewController.swift; sourceTree = "<group>"; };
+		A5E7335F264FD3F4003924E1 /* RegisterLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterLogin.storyboard; sourceTree = "<group>"; };
+		A5E73365264FE349003924E1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		A5E73369264FE3D6003924E1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +71,12 @@
 			isa = PBXGroup;
 			children = (
 				A596EA44264E9A17006A0BDB /* OnboardingScreens */,
+				A5E7335E264FD378003924E1 /* RegisterLoginScreens */,
+				A5BE73CA266101B10033D58F /* DetailsScreens */,
+				A5BE73C92661016D0033D58F /* PaymentCheckoutScreens */,
+				A5BE73C82661013E0033D58F /* ConfirmationScreens */,
 				A54CAFE8264E7EC300C29522 /* AppDelegate.swift */,
 				A54CAFEA264E7EC300C29522 /* SceneDelegate.swift */,
-				A54CAFEE264E7EC300C29522 /* Main.storyboard */,
 				A54CAFF1264E7EC400C29522 /* Assets.xcassets */,
 				A54CAFF3264E7EC400C29522 /* LaunchScreen.storyboard */,
 				A54CAFF6264E7EC400C29522 /* Info.plist */,
@@ -88,8 +99,41 @@
 				A596EA3A264E839F006A0BDB /* OnboardingCells */,
 				A596EA41264E8B9C006A0BDB /* Onboarding.swift */,
 				A596EA35264E8217006A0BDB /* OnboardingViewController.swift */,
+				A54CAFEE264E7EC300C29522 /* Onboarding.storyboard */,
 			);
 			path = OnboardingScreens;
+			sourceTree = "<group>";
+		};
+		A5BE73C82661013E0033D58F /* ConfirmationScreens */ = {
+			isa = PBXGroup;
+			children = (
+				A5BE73CB2661021A0033D58F /* CofirmationViewController.swift */,
+			);
+			path = ConfirmationScreens;
+			sourceTree = "<group>";
+		};
+		A5BE73C92661016D0033D58F /* PaymentCheckoutScreens */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PaymentCheckoutScreens;
+			sourceTree = "<group>";
+		};
+		A5BE73CA266101B10033D58F /* DetailsScreens */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DetailsScreens;
+			sourceTree = "<group>";
+		};
+		A5E7335E264FD378003924E1 /* RegisterLoginScreens */ = {
+			isa = PBXGroup;
+			children = (
+				A5E7335F264FD3F4003924E1 /* RegisterLogin.storyboard */,
+				A5E73365264FE349003924E1 /* RegisterViewController.swift */,
+				A5E73369264FE3D6003924E1 /* LoginViewController.swift */,
+			);
+			path = RegisterLoginScreens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,7 +196,8 @@
 				A54CAFF5264E7EC400C29522 /* LaunchScreen.storyboard in Resources */,
 				A54CAFF2264E7EC400C29522 /* Assets.xcassets in Resources */,
 				A596EA3E264E8467006A0BDB /* OnboardingCollectionViewCell.xib in Resources */,
-				A54CAFF0264E7EC300C29522 /* Main.storyboard in Resources */,
+				A5E73360264FD3F4003924E1 /* RegisterLogin.storyboard in Resources */,
+				A54CAFF0264E7EC300C29522 /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,8 +208,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5E7336A264FE3D6003924E1 /* LoginViewController.swift in Sources */,
 				A54CAFE9264E7EC300C29522 /* AppDelegate.swift in Sources */,
+				A5E73366264FE349003924E1 /* RegisterViewController.swift in Sources */,
 				A54CAFEB264E7EC300C29522 /* SceneDelegate.swift in Sources */,
+				A5BE73CC2661021A0033D58F /* CofirmationViewController.swift in Sources */,
 				A596EA42264E8B9C006A0BDB /* Onboarding.swift in Sources */,
 				A596EA36264E8217006A0BDB /* OnboardingViewController.swift in Sources */,
 				A596EA3D264E8467006A0BDB /* OnboardingCollectionViewCell.swift in Sources */,
@@ -174,12 +222,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A54CAFEE264E7EC300C29522 /* Main.storyboard */ = {
+		A54CAFEE264E7EC300C29522 /* Onboarding.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A54CAFEF264E7EC300C29522 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Onboarding.storyboard;
 			sourceTree = "<group>";
 		};
 		A54CAFF3264E7EC400C29522 /* LaunchScreen.storyboard */ = {
