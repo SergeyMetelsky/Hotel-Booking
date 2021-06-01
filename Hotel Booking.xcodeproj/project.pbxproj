@@ -14,6 +14,8 @@
 		A54CAFF2264E7EC400C29522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A54CAFF1264E7EC400C29522 /* Assets.xcassets */; };
 		A54CAFF5264E7EC400C29522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54CAFF3264E7EC400C29522 /* LaunchScreen.storyboard */; };
 		A577DF4E2665394100925863 /* PaymentCheckoutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A577DF4D2665394100925863 /* PaymentCheckoutTableViewCell.xib */; };
+		A577DF572666494400925863 /* BookingDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A577DF562666494400925863 /* BookingDetails.storyboard */; };
+		A577DF5B266649C500925863 /* BookingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577DF5A266649C500925863 /* BookingDetailsViewController.swift */; };
 		A596EA36264E8217006A0BDB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A596EA35264E8217006A0BDB /* OnboardingViewController.swift */; };
 		A596EA3D264E8467006A0BDB /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A596EA3B264E8467006A0BDB /* OnboardingCollectionViewCell.swift */; };
 		A596EA3E264E8467006A0BDB /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A596EA3C264E8467006A0BDB /* OnboardingCollectionViewCell.xib */; };
@@ -38,6 +40,8 @@
 		A54CAFF4264E7EC400C29522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A54CAFF6264E7EC400C29522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A577DF4D2665394100925863 /* PaymentCheckoutTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentCheckoutTableViewCell.xib; sourceTree = "<group>"; };
+		A577DF562666494400925863 /* BookingDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookingDetails.storyboard; sourceTree = "<group>"; };
+		A577DF5A266649C500925863 /* BookingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailsViewController.swift; sourceTree = "<group>"; };
 		A596EA35264E8217006A0BDB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		A596EA3B264E8467006A0BDB /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		A596EA3C264E8467006A0BDB /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 				A5BE73CA266101B10033D58F /* DetailsScreens */,
 				A5BE73C92661016D0033D58F /* PaymentCheckoutScreens */,
 				A5BE73C82661013E0033D58F /* ConfirmationScreens */,
+				A577DF522666487200925863 /* BookingDetails */,
 				A54CAFE8264E7EC300C29522 /* AppDelegate.swift */,
 				A54CAFEA264E7EC300C29522 /* SceneDelegate.swift */,
 				A54CAFF1264E7EC400C29522 /* Assets.xcassets */,
@@ -94,6 +99,15 @@
 				A54CAFF6264E7EC400C29522 /* Info.plist */,
 			);
 			path = "Hotel Booking";
+			sourceTree = "<group>";
+		};
+		A577DF522666487200925863 /* BookingDetails */ = {
+			isa = PBXGroup;
+			children = (
+				A577DF5A266649C500925863 /* BookingDetailsViewController.swift */,
+				A577DF562666494400925863 /* BookingDetails.storyboard */,
+			);
+			path = BookingDetails;
 			sourceTree = "<group>";
 		};
 		A596EA3A264E839F006A0BDB /* OnboardingCells */ = {
@@ -222,6 +236,7 @@
 				A54CAFF5264E7EC400C29522 /* LaunchScreen.storyboard in Resources */,
 				A54CAFF2264E7EC400C29522 /* Assets.xcassets in Resources */,
 				A577DF4E2665394100925863 /* PaymentCheckoutTableViewCell.xib in Resources */,
+				A577DF572666494400925863 /* BookingDetails.storyboard in Resources */,
 				A596EA3E264E8467006A0BDB /* OnboardingCollectionViewCell.xib in Resources */,
 				A5BE73CF266104D90033D58F /* Confirmation.storyboard in Resources */,
 				A5BE73D6266132920033D58F /* PaymentCheckout.storyboard in Resources */,
@@ -244,6 +259,7 @@
 				A5BE73CC2661021A0033D58F /* ConfirmationViewController.swift in Sources */,
 				A596EA42264E8B9C006A0BDB /* Onboarding.swift in Sources */,
 				A596EA36264E8217006A0BDB /* OnboardingViewController.swift in Sources */,
+				A577DF5B266649C500925863 /* BookingDetailsViewController.swift in Sources */,
 				A5BE73DF26614F320033D58F /* PaymentCheckoutTableViewCell.swift in Sources */,
 				A596EA3D264E8467006A0BDB /* OnboardingCollectionViewCell.swift in Sources */,
 				A52E2D8E2664F580003C5E95 /* PaymentService.swift in Sources */,
