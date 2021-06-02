@@ -72,6 +72,7 @@ class RegisterViewController: UIViewController {
         performSegue(withIdentifier: "loginSegue", sender: nil)
     }
     @IBAction func registerButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToExploreHomeStoryboard", sender: nil)
     }
     @IBAction func eyeButtonPressed(_ sender: UIButton) {
         eyeButton.isSelected = !eyeButton.isSelected
@@ -132,6 +133,30 @@ extension UITextField {
         leftViewMode = .always
         self.tintColor = .lightGray
     }
+   
+//    func setupShadowAndRadius() { // почему не срабатывает это имя?
+    func setShadowAndRadius() {
+//        self.layer.cornerRadius = 5 // почему не получается задать тень для TextField
+//        self.layer.shadowColor = UIColor.gray.cgColor
+//        self.layer.shadowOpacity = 1
+//        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+//        self.layer.shadowRadius = 3
+        
+//        self.layer.borderColor = UIColor.black.withAlphaComponent(0.25).cgColor
+//        self.layer.shadowOffset = CGSize(width: 0, height: 3)
+//        self.layer.shadowColor = UIColor.black.cgColor //Any dark color
+        
+//        self.layer.masksToBounds = false
+//        self.layer.shadowRadius = 4.0
+//        self.layer.shadowColor = UIColor.black.cgColor
+//        self.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+//        self.layer.shadowOpacity = 1.0
+        
+        self.layer.cornerRadius = self.frame.size.height/2
+        self.clipsToBounds = false
+        self.layer.shadowOpacity=0.4
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+    }
 }
 
 // MARK:- extension UIView
@@ -146,6 +171,7 @@ extension UIView {
         self.layer.shadowRadius = 3
     }
 }
+
 
 
 

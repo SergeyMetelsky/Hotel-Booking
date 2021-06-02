@@ -38,4 +38,7 @@ class LoginViewController: UIViewController {
     @IBAction func registerButtonPressed(_ sender: UIButton) {
 //        performSegue(withIdentifier: "registerSegue", sender: nil)
     }
+    @IBAction func loginButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToExploreHomeStoryboard", sender: nil)
+    }
 }
