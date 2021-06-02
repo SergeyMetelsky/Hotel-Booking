@@ -46,6 +46,9 @@ class ExploreHomeViewController: UIViewController {
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
     }
+    
+    @IBAction func unwingToExploreHomeScreen(_ sender: UIStoryboardSegue) {
+    }
 }
 
 extension ExploreHomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

@@ -52,6 +52,7 @@
                                 </state>
                                 <connections>
                                     <action selector="goBackButtonPressed:" destination="EHi-ni-iDm" eventType="touchUpInside" id="UWL-d3-LYP"/>
+                                    <segue destination="LTL-ei-PVm" kind="unwind" unwindAction="unwingToExploreHomeScreen:" id="lMj-FX-uyR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -76,22 +77,12 @@
                     <navigationItem key="navigationItem" title="Booking" id="fN8-Xu-8Pg"/>
                     <connections>
                         <outlet property="goBackButton" destination="fa4-wL-OK7" id="Kvq-Bx-Oyk"/>
-                        <segue destination="Icu-D8-qch" kind="show" identifier="goToRegisterLoginStoryboard" id="88J-Wb-5lW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K1Q-7c-iNM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="LTL-ei-PVm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1498.4000000000001" y="33.733133433283363"/>
-        </scene>
-        <!--RegisterViewController-->
-        <scene sceneID="WXf-Hh-xos">
-            <objects>
-                <viewControllerPlaceholder storyboardName="RegisterLogin" referencedIdentifier="RegisterViewController" id="Icu-D8-qch" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ihC-rD-eyA"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bh8-fH-0Cx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2146.4000000000001" y="33.283358320839582"/>
+            <point key="canvasLocation" x="2437.5999999999999" y="33.733133433283363"/>
         </scene>
     </scenes>
     <resources>

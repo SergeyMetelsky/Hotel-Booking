@@ -19,7 +19,6 @@ class ConfirmationViewController: UIViewController {
     }
     
     @IBAction func goBackButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToRegisterLoginStoryboard", sender: nil)
     }
     @IBAction func unwindSegueToConfirmationScreen(segue: UIStoryboardSegue) {
         
