@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,6 +28,7 @@
 		A596EA3D264E8467006A0BDB /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A596EA3B264E8467006A0BDB /* OnboardingCollectionViewCell.swift */; };
 		A596EA3E264E8467006A0BDB /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A596EA3C264E8467006A0BDB /* OnboardingCollectionViewCell.xib */; };
 		A596EA42264E8B9C006A0BDB /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A596EA41264E8B9C006A0BDB /* Onboarding.swift */; };
+		A5BC3126266F7FBD00132BF6 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BC3125266F7FBD00132BF6 /* ResetPasswordViewController.swift */; };
 		A5BE73CC2661021A0033D58F /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BE73CB2661021A0033D58F /* ConfirmationViewController.swift */; };
 		A5BE73CF266104D90033D58F /* Confirmation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5BE73CE266104D90033D58F /* Confirmation.storyboard */; };
 		A5BE73D6266132920033D58F /* PaymentCheckout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5BE73D5266132920033D58F /* PaymentCheckout.storyboard */; };
@@ -64,6 +65,7 @@
 		A596EA3B264E8467006A0BDB /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		A596EA3C264E8467006A0BDB /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
 		A596EA41264E8B9C006A0BDB /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		A5BC3125266F7FBD00132BF6 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		A5BE73CB2661021A0033D58F /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
 		A5BE73CE266104D90033D58F /* Confirmation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Confirmation.storyboard; sourceTree = "<group>"; };
 		A5BE73D5266132920033D58F /* PaymentCheckout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentCheckout.storyboard; sourceTree = "<group>"; };
@@ -100,7 +102,6 @@
 				59205F90824E2B73228DD3CB /* Pods-Hotel Booking.debug.xcconfig */,
 				67DB887D5AE3577F82C4F748 /* Pods-Hotel Booking.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -257,6 +258,7 @@
 			children = (
 				A5E73365264FE349003924E1 /* RegisterViewController.swift */,
 				A5E73369264FE3D6003924E1 /* LoginViewController.swift */,
+				A5BC3125266F7FBD00132BF6 /* ResetPasswordViewController.swift */,
 				A5E7335F264FD3F4003924E1 /* RegisterLogin.storyboard */,
 			);
 			path = RegisterLoginScreens;
@@ -387,6 +389,7 @@
 			files = (
 				A577DF6E2666B8DE00925863 /* Hotel.swift in Sources */,
 				A5E7336A264FE3D6003924E1 /* LoginViewController.swift in Sources */,
+				A5BC3126266F7FBD00132BF6 /* ResetPasswordViewController.swift in Sources */,
 				A54CAFE9264E7EC300C29522 /* AppDelegate.swift in Sources */,
 				A577DF6A2666B44A00925863 /* HotelCell.swift in Sources */,
 				A577DFC02669352E00925863 /* NetworkManager.swift in Sources */,

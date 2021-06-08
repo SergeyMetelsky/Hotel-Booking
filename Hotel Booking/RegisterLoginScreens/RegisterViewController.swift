@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
     
-// MARK:- IBOutlets
+    // MARK:- IBOutlets
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var passwordView: UIView!
@@ -28,7 +29,7 @@ class RegisterViewController: UIViewController {
     
     let customOrange: UIColor = UIColor(red: 242/255, green: 65/255, blue: 49/255, alpha: 1)
     
-// MARK:- ViewController Life cycle
+    // MARK:- ViewController Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,10 +49,22 @@ class RegisterViewController: UIViewController {
         registerButton.layer.backgroundColor = UIColor.lightGray.cgColor
         registerButton.layer.cornerRadius = 5
         
+        passwordTextField.autocorrectionType = .no
+        
         textPrivacyPolicy()
     }
     
-// MARK:- IBActions
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.hidesBackButton = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        navigationItem.hidesBackButton = false
+    }
+    
+    // MARK:- IBActions
     @IBAction func nameTextChanged(_ sender: UITextField) {
     }
     @IBAction func emailTextChanged(_ sender: UITextField) {
@@ -72,7 +85,20 @@ class RegisterViewController: UIViewController {
         performSegue(withIdentifier: "loginSegue", sender: nil)
     }
     @IBAction func registerButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToExploreHomeStoryboard", sender: nil)
+        
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                if user != nil {
+                    self.performSegue(withIdentifier: "goToExploreHomeStoryboard", sender: nil)
+                } else {
+                    let errorMessage = error?.localizedDescription ?? "Error"
+                    let alertVC = UIAlertController(title: nil, message: errorMessage, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    alertVC.addAction(action)
+                    self.present(alertVC, animated: true, completion: nil)
+                }
+            }
+        }
     }
     @IBAction func eyeButtonPressed(_ sender: UIButton) {
         eyeButton.isSelected = !eyeButton.isSelected
@@ -132,24 +158,24 @@ extension UITextField {
         leftViewMode = .always
         self.tintColor = .lightGray
     }
-   
-//    func setupShadowAndRadius() { // почему не срабатывает это имя?
+    
+    //    func setupShadowAndRadius() { // почему не срабатывает это имя?
     func setShadowAndRadius() {
-//        self.layer.cornerRadius = 5 // почему не получается задать тень для TextField
-//        self.layer.shadowColor = UIColor.gray.cgColor
-//        self.layer.shadowOpacity = 1
-//        self.layer.shadowOffset = CGSize(width: 0, height: 4)
-//        self.layer.shadowRadius = 3
+        //        self.layer.cornerRadius = 5 // почему не получается задать тень для TextField
+        //        self.layer.shadowColor = UIColor.gray.cgColor
+        //        self.layer.shadowOpacity = 1
+        //        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        //        self.layer.shadowRadius = 3
         
-//        self.layer.borderColor = UIColor.black.withAlphaComponent(0.25).cgColor
-//        self.layer.shadowOffset = CGSize(width: 0, height: 3)
-//        self.layer.shadowColor = UIColor.black.cgColor //Any dark color
+        //        self.layer.borderColor = UIColor.black.withAlphaComponent(0.25).cgColor
+        //        self.layer.shadowOffset = CGSize(width: 0, height: 3)
+        //        self.layer.shadowColor = UIColor.black.cgColor //Any dark color
         
-//        self.layer.masksToBounds = false
-//        self.layer.shadowRadius = 4.0
-//        self.layer.shadowColor = UIColor.black.cgColor
-//        self.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
-//        self.layer.shadowOpacity = 1.0
+        //        self.layer.masksToBounds = false
+        //        self.layer.shadowRadius = 4.0
+        //        self.layer.shadowColor = UIColor.black.cgColor
+        //        self.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+        //        self.layer.shadowOpacity = 1.0
         
         self.layer.cornerRadius = self.frame.size.height/2
         self.clipsToBounds = false

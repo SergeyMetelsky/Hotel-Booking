@@ -8,7 +8,8 @@
 import UIKit
 
 class ExploreHomeViewController: UIViewController {
-
+    
+    // MARK:- IBOutlets
     @IBOutlet weak var locationView: UIView!
     @IBOutlet weak var locationTextField: UITextField!
     
@@ -27,6 +28,7 @@ class ExploreHomeViewController: UIViewController {
     
     var catalog: Catalog = Catalog()
     
+    // MARK:- ViewController Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +49,12 @@ class ExploreHomeViewController: UIViewController {
         self.collectionView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.hidesBackButton = true
+    }
+    
+    // MARK:- IBActions
     @IBAction func unwingToExploreHomeScreen(_ sender: UIStoryboardSegue) {
     }
 }
