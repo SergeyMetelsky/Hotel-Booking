@@ -79,7 +79,6 @@ class RegisterViewController: UIViewController {
         passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
     }
     @IBAction func unwindSegueToRegisterScreen(segue: UIStoryboardSegue) {
-        
     }
     
     func textPrivacyPolicy() {
