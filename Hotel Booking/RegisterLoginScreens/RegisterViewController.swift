@@ -10,6 +10,11 @@ import Firebase
 
 class RegisterViewController: UIViewController {
     
+    // MARK:- Properties
+    let customOrange: UIColor = UIColor(red: 242/255, green: 65/255, blue: 49/255, alpha: 1)
+    var offsetBeforeKeyboardDidShown: CGFloat = 0
+    weak var activeField: UITextField?
+    
     // MARK:- IBOutlets
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var emailView: UIView!
@@ -26,10 +31,8 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var agreeLabel: UILabel!
     @IBOutlet weak var loginHereLabel: UILabel!
-    
-    let customOrange: UIColor = UIColor(red: 242/255, green: 65/255, blue: 49/255, alpha: 1)
-    
-    // MARK:- ViewController Life cycle
+            
+    // MARK:- ControllerLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +55,31 @@ class RegisterViewController: UIViewController {
         passwordTextField.autocorrectionType = .no
         
         textPrivacyPolicy()
+        
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(RegisterViewController.keyboardDidShow),
+//                                               name: UIResponder.keyboardDidShowNotification,
+//                                               object: nil)
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(RegisterViewController.keyboardWillBeHidden),
+//                                               name: UIResponder.keyboardWillHideNotification,
+//                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardDidShow),
+                                               name: UIResponder.keyboardDidShowNotification,
+                                               object: nil)
+
+
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardDidHide),
+                                               name: UIResponder.keyboardDidHideNotification,
+                                               object: nil)
+
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(firstRecognizerClicked(_:)))
+        view.addGestureRecognizer(tapRecognizer)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +91,12 @@ class RegisterViewController: UIViewController {
         super.viewWillDisappear(animated)
 //        navigationItem.hidesBackButton = false
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+
     
     // MARK:- IBActions
     @IBAction func nameTextChanged(_ sender: UITextField) {
@@ -107,6 +141,72 @@ class RegisterViewController: UIViewController {
     @IBAction func unwindSegueToRegisterScreen(segue: UIStoryboardSegue) {
     }
     
+    @IBAction func tapClicked(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    // MARK:- Functions
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeField = nil
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeField = textField
+    }
+    
+    
+//    @objc func keyboardDidShow(notification: Notification) {
+//        let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+//        guard let activeField = activeField, let keyboardHeight = keyboardSize?.height else { return }
+//
+//        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardHeight, right: 0.0)
+//        (self.view as! UIScrollView).contentInset = contentInsets
+//        (self.view as! UIScrollView).scrollIndicatorInsets = contentInsets
+//        let activeRect = activeField.convert(activeField.bounds, to: (self.view as! UIScrollView))
+//        (self.view as! UIScrollView).scrollRectToVisible(activeRect, animated: true)
+//    }
+//
+//    @objc func keyboardWillBeHidden(notification: Notification) {
+//        let contentInsets = UIEdgeInsets.zero
+//        (self.view as! UIScrollView).contentInset = contentInsets
+//        (self.view as! UIScrollView).scrollIndicatorInsets = contentInsets
+//    }
+    
+    
+//    @objc func keyboardDidShow(notification: Notification) {
+//        guard let userInfo = notification.userInfo else { return }
+//        var keyboardFrameSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+//        keyboardFrameSize = self.view.convert(keyboardFrameSize, from: nil)
+//
+//        (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height + keyboardFrameSize.height)
+//
+//        (self.view as! UIScrollView).scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrameSize.height, right: 0)
+//    }
+//
+//    @objc func keyboardDidHide() {
+////        self.scrollView.contentSize = CGSize(width: scrollView.bounds.size.width, height: self.scrollView.bounds.size.height)
+//        (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height)
+////        print("contentSize.height = \((self.view as! UIScrollView).contentSize.height)")
+//    }
+    
+    @objc func keyboardDidShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        var keyboardFrameSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrameSize = self.view.convert(keyboardFrameSize, from: nil)
+        
+        self.view.frame.origin.y -= 150 // Move view 150 points upward
+    }
+
+    @objc func keyboardDidHide(sender: NSNotification) {
+         self.view.frame.origin.y = 0 // Move view to original position
+    }
+
+    @objc func firstRecognizerClicked(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    
     func textPrivacyPolicy() {
         // Create the attributed string
         let myString = NSMutableAttributedString(string:"I hereby agree to the T&C and Privacy Policy.")
@@ -132,10 +232,10 @@ class RegisterViewController: UIViewController {
     }
 }
 
-// MARK:- extension UITextField
+// MARK:- ExtensionUITextField
 extension UITextField {
     
-    //MARK:- Set Image on the right of text fields
+    // Set Image on the right of text fields
     func setupRightImage(imageName:String){
         let imageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 20, height: 20))
         imageView.contentMode = .scaleAspectFit
@@ -147,7 +247,7 @@ extension UITextField {
         self.tintColor = .lightGray
     }
     
-    //MARK:- Set Image on left of text fields
+    //Set Image on left of text fields
     func setupLeftImage(imageName:String){
         let imageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 20, height: 20))
         imageView.contentMode = .scaleAspectFit
@@ -184,10 +284,10 @@ extension UITextField {
     }
 }
 
-// MARK:- extension UIView
+// MARK:- ExtensionUIView
 extension UIView {
     
-    //MARK:- Set shadow and radius of View
+    // Set shadow and radius of View
     func setupShadowAndRadius() {
         self.layer.cornerRadius = 5
         self.layer.shadowColor = UIColor.gray.cgColor

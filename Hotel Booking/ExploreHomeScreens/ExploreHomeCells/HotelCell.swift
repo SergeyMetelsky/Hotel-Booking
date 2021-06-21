@@ -9,14 +9,16 @@ import UIKit
 
 class HotelCell: UICollectionViewCell {
 
+//    @IBOutlet weak var shadowView: UIView!
+    @IBOutlet weak var view: UIView!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
     override func awakeFromNib() {
-        super.awakeFromNib()
-        
+        super.awakeFromNib() 
+        view.setupShadowAndRadius()
         backView.setupShadowAndRadius()
     }
     

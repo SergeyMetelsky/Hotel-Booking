@@ -33,6 +33,9 @@ class LoginViewController: UIViewController {
         passwordTextField.setupLeftImage(imageName: "Password Icon")
         
         loginButton.layer.cornerRadius = 5
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(firstRecognizerClicked(_:)))
+        view.addGestureRecognizer(tapRecognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,5 +69,9 @@ class LoginViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc func firstRecognizerClicked(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 }

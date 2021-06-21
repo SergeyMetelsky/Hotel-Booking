@@ -44,9 +44,10 @@ class ExploreHomeViewController: UIViewController {
 
         searchButton.layer.cornerRadius = 5
         
-        self.collectionView.register(UINib(nibName: "HotelCell", bundle: nil), forCellWithReuseIdentifier: "HotelCell")
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
+        collectionView.register(UINib(nibName: "HotelCell", bundle: nil), forCellWithReuseIdentifier: "HotelCell")
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
