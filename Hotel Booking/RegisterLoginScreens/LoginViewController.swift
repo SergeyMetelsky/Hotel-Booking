@@ -11,6 +11,9 @@ import Firebase
 class LoginViewController: UIViewController {
     
     // MARK:- IBOutlets
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var passwordView: UIView!
     
@@ -34,6 +37,18 @@ class LoginViewController: UIViewController {
         
         loginButton.layer.cornerRadius = 5
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardDidShow),
+                                               name: UIResponder.keyboardDidShowNotification,
+                                               object: nil)
+        
+        
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardDidHide),
+                                               name: UIResponder.keyboardDidHideNotification,
+                                               object: nil)
+
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(firstRecognizerClicked(_:)))
         view.addGestureRecognizer(tapRecognizer)
     }
@@ -47,8 +62,6 @@ class LoginViewController: UIViewController {
     @IBAction func eyeButtonPressed(_ sender: UIButton) {
         eyeButton.isSelected = !eyeButton.isSelected
         passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
-    }
-    @IBAction func registerButtonPressed(_ sender: UIButton) {
     }
     @IBAction func forgotPasswordPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "resetPasswordSegue", sender: nil)
@@ -71,6 +84,16 @@ class LoginViewController: UIViewController {
         }
     }
     
+//    MARK:- Functions
+    @objc func keyboardDidShow(notification: Notification) {
+        guard let keyboardFrame = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        scrollView.contentInset.bottom = view.convert(keyboardFrame.cgRectValue, from: nil).size.height + 15
+    }
+
+    @objc func keyboardDidHide(notification: Notification) {
+        scrollView.contentInset.bottom = 0
+    }
+
     @objc func firstRecognizerClicked(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }

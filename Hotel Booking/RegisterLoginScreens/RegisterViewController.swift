@@ -16,6 +16,8 @@ class RegisterViewController: UIViewController {
     weak var activeField: UITextField?
     
     // MARK:- IBOutlets
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var passwordView: UIView!
@@ -56,22 +58,13 @@ class RegisterViewController: UIViewController {
         
         textPrivacyPolicy()
         
-//        NotificationCenter.default.addObserver(self,
-//                                               selector: #selector(RegisterViewController.keyboardDidShow),
-//                                               name: UIResponder.keyboardDidShowNotification,
-//                                               object: nil)
-//        NotificationCenter.default.addObserver(self,
-//                                               selector: #selector(RegisterViewController.keyboardWillBeHidden),
-//                                               name: UIResponder.keyboardWillHideNotification,
-//                                               object: nil)
-        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardDidShow),
                                                name: UIResponder.keyboardDidShowNotification,
                                                object: nil)
-
-
-
+        
+        
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardDidHide),
                                                name: UIResponder.keyboardDidHideNotification,
@@ -156,50 +149,13 @@ class RegisterViewController: UIViewController {
     }
     
     
-//    @objc func keyboardDidShow(notification: Notification) {
-//        let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
-//        guard let activeField = activeField, let keyboardHeight = keyboardSize?.height else { return }
-//
-//        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardHeight, right: 0.0)
-//        (self.view as! UIScrollView).contentInset = contentInsets
-//        (self.view as! UIScrollView).scrollIndicatorInsets = contentInsets
-//        let activeRect = activeField.convert(activeField.bounds, to: (self.view as! UIScrollView))
-//        (self.view as! UIScrollView).scrollRectToVisible(activeRect, animated: true)
-//    }
-//
-//    @objc func keyboardWillBeHidden(notification: Notification) {
-//        let contentInsets = UIEdgeInsets.zero
-//        (self.view as! UIScrollView).contentInset = contentInsets
-//        (self.view as! UIScrollView).scrollIndicatorInsets = contentInsets
-//    }
-    
-    
-//    @objc func keyboardDidShow(notification: Notification) {
-//        guard let userInfo = notification.userInfo else { return }
-//        var keyboardFrameSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-//        keyboardFrameSize = self.view.convert(keyboardFrameSize, from: nil)
-//
-//        (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height + keyboardFrameSize.height)
-//
-//        (self.view as! UIScrollView).scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrameSize.height, right: 0)
-//    }
-//
-//    @objc func keyboardDidHide() {
-////        self.scrollView.contentSize = CGSize(width: scrollView.bounds.size.width, height: self.scrollView.bounds.size.height)
-//        (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height)
-////        print("contentSize.height = \((self.view as! UIScrollView).contentSize.height)")
-//    }
-    
-    @objc func keyboardDidShow(notification: NSNotification) {
-        guard let userInfo = notification.userInfo else { return }
-        var keyboardFrameSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        keyboardFrameSize = self.view.convert(keyboardFrameSize, from: nil)
-        
-        self.view.frame.origin.y -= 150 // Move view 150 points upward
+    @objc func keyboardDidShow(notification: Notification) {
+        guard let keyboardFrame = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        scrollView.contentInset.bottom = view.convert(keyboardFrame.cgRectValue, from: nil).size.height + 15
     }
 
-    @objc func keyboardDidHide(sender: NSNotification) {
-         self.view.frame.origin.y = 0 // Move view to original position
+    @objc func keyboardDidHide(notification: Notification) {
+        scrollView.contentInset.bottom = 0
     }
 
     @objc func firstRecognizerClicked(_ sender: UITapGestureRecognizer) {

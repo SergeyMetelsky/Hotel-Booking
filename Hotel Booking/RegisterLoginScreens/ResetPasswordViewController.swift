@@ -11,6 +11,9 @@ import Firebase
 class ResetPasswordViewController: UIViewController {
     
     // MARK:- IBOutlets
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var emailView: UIView!
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -28,6 +31,21 @@ class ResetPasswordViewController: UIViewController {
         emailTextField.setupLeftImage(imageName: "Email Icon")
         
         ResetPasswordButton.layer.cornerRadius = 5
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardDidShow),
+                                               name: UIResponder.keyboardDidShowNotification,
+                                               object: nil)
+        
+        
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardDidHide),
+                                               name: UIResponder.keyboardDidHideNotification,
+                                               object: nil)
+
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(firstRecognizerClicked(_:)))
+        view.addGestureRecognizer(tapRecognizer)
     }
     
     // MARK:- IBActions
@@ -49,5 +67,19 @@ class ResetPasswordViewController: UIViewController {
                 }
             }
         }
+    }
+    
+//    MARK:- Functions
+    @objc func keyboardDidShow(notification: Notification) {
+        guard let keyboardFrame = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        scrollView.contentInset.bottom = view.convert(keyboardFrame.cgRectValue, from: nil).size.height + 15
+    }
+
+    @objc func keyboardDidHide(notification: Notification) {
+        scrollView.contentInset.bottom = 0
+    }
+
+    @objc func firstRecognizerClicked(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 }

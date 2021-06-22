@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6B336BEC4215E670571E7D51 /* Pods_Hotel_Booking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14108A6FBEBA3B2853198ADB /* Pods_Hotel_Booking.framework */; };
 		A52E2D8E2664F580003C5E95 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E2D8D2664F580003C5E95 /* PaymentService.swift */; };
-		A540E97E267CF47B004CFA60 /* RedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A540E97D267CF47B004CFA60 /* RedViewController.swift */; };
 		A54CAFE9264E7EC300C29522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54CAFE8264E7EC300C29522 /* AppDelegate.swift */; };
 		A54CAFEB264E7EC300C29522 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54CAFEA264E7EC300C29522 /* SceneDelegate.swift */; };
 		A54CAFF0264E7EC300C29522 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54CAFEE264E7EC300C29522 /* Onboarding.storyboard */; };
@@ -37,7 +36,6 @@
 		A5BE73D6266132920033D58F /* PaymentCheckout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5BE73D5266132920033D58F /* PaymentCheckout.storyboard */; };
 		A5BE73D9266133390033D58F /* PaymentCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BE73D8266133390033D58F /* PaymentCheckoutViewController.swift */; };
 		A5BE73DF26614F320033D58F /* PaymentCheckoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BE73DD26614F320033D58F /* PaymentCheckoutTableViewCell.swift */; };
-		A5D1241E267B7BE00030B198 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D1241D267B7BE00030B198 /* GreenViewController.swift */; };
 		A5E73360264FD3F4003924E1 /* RegisterLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5E7335F264FD3F4003924E1 /* RegisterLogin.storyboard */; };
 		A5E73366264FE349003924E1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E73365264FE349003924E1 /* RegisterViewController.swift */; };
 		A5E7336A264FE3D6003924E1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E73369264FE3D6003924E1 /* LoginViewController.swift */; };
@@ -48,7 +46,6 @@
 		59205F90824E2B73228DD3CB /* Pods-Hotel Booking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hotel Booking.debug.xcconfig"; path = "Target Support Files/Pods-Hotel Booking/Pods-Hotel Booking.debug.xcconfig"; sourceTree = "<group>"; };
 		67DB887D5AE3577F82C4F748 /* Pods-Hotel Booking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hotel Booking.release.xcconfig"; path = "Target Support Files/Pods-Hotel Booking/Pods-Hotel Booking.release.xcconfig"; sourceTree = "<group>"; };
 		A52E2D8D2664F580003C5E95 /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
-		A540E97D267CF47B004CFA60 /* RedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedViewController.swift; sourceTree = "<group>"; };
 		A54CAFE5264E7EC300C29522 /* Hotel Booking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hotel Booking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A54CAFE8264E7EC300C29522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A54CAFEA264E7EC300C29522 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +75,6 @@
 		A5BE73D5266132920033D58F /* PaymentCheckout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentCheckout.storyboard; sourceTree = "<group>"; };
 		A5BE73D8266133390033D58F /* PaymentCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCheckoutViewController.swift; sourceTree = "<group>"; };
 		A5BE73DD26614F320033D58F /* PaymentCheckoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCheckoutTableViewCell.swift; sourceTree = "<group>"; };
-		A5D1241D267B7BE00030B198 /* GreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
 		A5E7335F264FD3F4003924E1 /* RegisterLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterLogin.storyboard; sourceTree = "<group>"; };
 		A5E73365264FE349003924E1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A5E73369264FE3D6003924E1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -269,8 +265,6 @@
 				A5E73365264FE349003924E1 /* RegisterViewController.swift */,
 				A5E73369264FE3D6003924E1 /* LoginViewController.swift */,
 				A5BC3125266F7FBD00132BF6 /* ResetPasswordViewController.swift */,
-				A5D1241D267B7BE00030B198 /* GreenViewController.swift */,
-				A540E97D267CF47B004CFA60 /* RedViewController.swift */,
 				A5E7335F264FD3F4003924E1 /* RegisterLogin.storyboard */,
 			);
 			path = RegisterLoginScreens;
@@ -399,14 +393,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5D1241E267B7BE00030B198 /* GreenViewController.swift in Sources */,
 				A577DF6E2666B8DE00925863 /* Hotel.swift in Sources */,
 				A5E7336A264FE3D6003924E1 /* LoginViewController.swift in Sources */,
 				A5BC3126266F7FBD00132BF6 /* ResetPasswordViewController.swift in Sources */,
 				A54CAFE9264E7EC300C29522 /* AppDelegate.swift in Sources */,
 				A577DF6A2666B44A00925863 /* HotelCell.swift in Sources */,
 				A577DFC02669352E00925863 /* NetworkManager.swift in Sources */,
-				A540E97E267CF47B004CFA60 /* RedViewController.swift in Sources */,
 				A555980126810E4800B6D664 /* Service.swift in Sources */,
 				A5E73366264FE349003924E1 /* RegisterViewController.swift in Sources */,
 				A54CAFEB264E7EC300C29522 /* SceneDelegate.swift in Sources */,
