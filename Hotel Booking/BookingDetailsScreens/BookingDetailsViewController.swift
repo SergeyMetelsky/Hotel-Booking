@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookingDetailsViewController: UIViewController {
+class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -47,5 +47,33 @@ class BookingDetailsViewController: UIViewController {
         roomTextField.setupLeftImage(imageName: "room Icon")
         
         bookNowButton.layer.cornerRadius = 5
+        
+        nameTextField.delegate = self
+        phoneTextField.delegate = self
+        dataInTextField.delegate = self
+        dataOutTextField.delegate = self
+        peopleTextField.delegate = self
+        roomTextField.delegate = self
+        
+        peopleTextField.addTarget(self, action: #selector(goToPeopleVC), for: .touchDown)
+        roomTextField.addTarget(self, action: #selector(goToRoomsVC), for: .touchDown)
+
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(firstRecognizerClicked(_:)))
+        view.addGestureRecognizer(tapRecognizer)
+
+
     }
+    
+    @objc func goToPeopleVC(textField: UITextField) {
+        performSegue(withIdentifier: "goToPeople", sender: nil)
+    }
+    @objc func goToRoomsVC(textField: UITextField) {
+        performSegue(withIdentifier: "goToRooms", sender: nil)
+    }
+    @objc func firstRecognizerClicked(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+
+    
 }
