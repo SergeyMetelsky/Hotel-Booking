@@ -87,109 +87,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "283F9C05-CE75-4793-9440-09CDB1EAC461"
+            uuid = "0D751125-6327-4539-93BC-10443AC5582B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Hotel Booking/BookingDetailsScreens/CalendarPopUpScreen/CalendarViewController.swift"
+            filePath = "Hotel Booking/BookingDetailsScreens/RoomPopUpScreen/RoomsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "CalendarViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "283F9C05-CE75-4793-9440-09CDB1EAC461 - cacbb967d5ab6487"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Hotel_Booking.CalendarViewController.sourceTextField.getter : Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "Hotel Booking"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergey/Documents/Development/2021/TMS/Hotel%20Booking/Hotel%20Booking/BookingDetailsScreens/CalendarPopUpScreen/CalendarViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "139">
-               </Location>
-               <Location
-                  uuid = "283F9C05-CE75-4793-9440-09CDB1EAC461 - 2fce2840d83d3493"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Hotel_Booking.CalendarViewController.sourceTextField.setter : Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "Hotel Booking"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergey/Documents/Development/2021/TMS/Hotel%20Booking/Hotel%20Booking/BookingDetailsScreens/CalendarPopUpScreen/CalendarViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "174">
-               </Location>
-               <Location
-                  uuid = "283F9C05-CE75-4793-9440-09CDB1EAC461 - f12a9af4ec52467b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Hotel_Booking.CalendarViewController.sourceTextField.modify : Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "Hotel Booking"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergey/Documents/Development/2021/TMS/Hotel%20Booking/Hotel%20Booking/BookingDetailsScreens/CalendarPopUpScreen/CalendarViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "18">
-               </Location>
-               <Location
-                  uuid = "283F9C05-CE75-4793-9440-09CDB1EAC461 - feff396ef9a66ccc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Hotel_Booking.CalendarViewController.sourceTextField.modify : Swift.Optional&lt;Swift.String&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "Hotel Booking"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergey/Documents/Development/2021/TMS/Hotel%20Booking/Hotel%20Booking/BookingDetailsScreens/CalendarPopUpScreen/CalendarViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  uuid = "283F9C05-CE75-4793-9440-09CDB1EAC461 - f7afb9f0a7db4b23"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Hotel_Booking.CalendarViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Hotel_Booking.CalendarViewController"
-                  moduleName = "Hotel Booking"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergey/Documents/Development/2021/TMS/Hotel%20Booking/Hotel%20Booking/BookingDetailsScreens/CalendarPopUpScreen/CalendarViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "752">
-               </Location>
-               <Location
-                  uuid = "283F9C05-CE75-4793-9440-09CDB1EAC461 - 5b5f35c8d2ba24ee"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Hotel_Booking.CalendarViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Hotel_Booking.CalendarViewController&gt;"
-                  moduleName = "Hotel Booking"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergey/Documents/Development/2021/TMS/Hotel%20Booking/Hotel%20Booking/BookingDetailsScreens/CalendarPopUpScreen/CalendarViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "705">
-               </Location>
-            </Locations>
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "donePressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0F7D48D5-FDE9-4327-94DD-EBAF9DD01DC6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hotel Booking/BookingDetailsScreens/PeoplePopUpScreen/PeopleViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "donePressed(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

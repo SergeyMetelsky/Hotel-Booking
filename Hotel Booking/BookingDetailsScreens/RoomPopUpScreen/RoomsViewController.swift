@@ -7,8 +7,10 @@
 
 import UIKit
 
-class RoomsViewController: UIViewController {
+let roomViewControllerNotification = NSNotification.Name(rawValue: "roomleViewControllerNotification")
 
+class RoomsViewController: UIViewController {
+    
     @IBOutlet weak var roomsTableView: UITableView!
     @IBOutlet weak var contentView: UIView!
     
@@ -30,9 +32,16 @@ class RoomsViewController: UIViewController {
     }
     
     @IBAction func donePressed(_ sender: UIButton) {
-        // реализовать заполнение полей
+        // если польщователь не заполнил поля то кнопка не будет работать
+        for room in bookingRoom.bookingRooms {
+            if room.quantity != 0 {
+                NotificationCenter.default.post(name: roomViewControllerNotification, object: bookingRoom)
+                dismiss(animated: true, completion: nil)
+                break
+            }
+        }
+        return
     }
-    
 }
 
 extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -47,7 +56,7 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookingDetailsCell", for: indexPath) as! BookingDetailsCell
         cell.setupCell(item: bookingRoom.bookingRooms[indexPath.item])
-
+        
         
         cell.cellMinusPressed = {
             guard self.bookingRoom.bookingRooms[indexPath.item].quantity > 0 else { return }

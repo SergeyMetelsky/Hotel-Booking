@@ -43,6 +43,14 @@ class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
                                                selector: #selector(checkOutNotificationFromCalendarViewController(_:)),
                                                name: checkOutCalendarViewControllerNotification,
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(peopleNotificationFromPeopleViewController(_:)),
+                                               name: peopleViewControllerNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(roomNotificationFromRoomsViewControllerr(_:)),
+                                               name: roomViewControllerNotification,
+                                               object: nil)
         
         nameView.setupShadowAndRadius()
         phoneView.setupShadowAndRadius()
@@ -79,9 +87,13 @@ class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func goToPeopleVC(textField: UITextField) {
+        // очиска перед следующим вызовом контроллера заполнения
+        peopleTextField.text?.removeAll()
         performSegue(withIdentifier: "goToPeople", sender: nil)
     }
     @objc func goToRoomsVC(textField: UITextField) {
+        // очиска перед следующим вызовом контроллера заполнения
+        roomTextField.text?.removeAll()
         performSegue(withIdentifier: "goToRooms", sender: nil)
     }
     @objc func goToCalendarVC(textField: UITextField) {
@@ -97,6 +109,7 @@ class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
+        destinationVC.modalPresentationStyle = .overCurrentContext
         present(destinationVC, animated: true, completion: nil)
         //        performSegue(withIdentifier: "goToCalendar", sender: nil)
     }
@@ -113,6 +126,30 @@ class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
         if let date = notification.object as? Date {
             formatter.dateFormat = "dd MMM, yyy"
             dataOutTextField.text = "\(formatter.string(from: date))"
+        }
+    }
+    @objc func peopleNotificationFromPeopleViewController(_ notification: Notification) {
+        guard let roomRenter = notification.object as? RoomRenter else { return }
+        for renter in roomRenter.roomRenters {
+            if renter.quantity != 0 {
+                if peopleTextField.text == "" {
+                    peopleTextField.text! += "\(renter.quantity) \(renter.name)"
+                } else {
+                    peopleTextField.text! += ", \(renter.quantity) \(renter.name)"
+                }
+            }
+        }
+    }
+    @objc func roomNotificationFromRoomsViewControllerr(_ notification: Notification) {
+        guard let bookingRoom = notification.object as? BookingRoom else { return }
+        for room in bookingRoom.bookingRooms {
+            if room.quantity != 0 {
+                if roomTextField.text == "" {
+                    roomTextField.text! += "\(room.quantity) \(room.name)"
+                } else {
+                    roomTextField.text! += ", \(room.quantity) \(room.name)"
+                }
+            }
         }
     }
 }

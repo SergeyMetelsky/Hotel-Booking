@@ -7,6 +7,8 @@
 
 import UIKit
 
+let peopleViewControllerNotification = NSNotification.Name(rawValue: "peopleViewControllerNotification")
+
 class PeopleViewController: UIViewController {
     
     @IBOutlet weak var peopleTableView: UITableView!
@@ -30,9 +32,16 @@ class PeopleViewController: UIViewController {
     }
     
     @IBAction func donePressed(_ sender: UIButton) {
-        // реализовать заполнение полей
+        // если польщователь не заполнил поля то кнопка не будет работать
+        for renter in roomRenter.roomRenters {
+            if renter.quantity != 0 {
+                NotificationCenter.default.post(name: peopleViewControllerNotification, object: roomRenter)
+                dismiss(animated: true, completion: nil)
+                break
+            }
+        }
+        return
     }
-    
 }
 
 extension PeopleViewController: UITableViewDelegate, UITableViewDataSource {
