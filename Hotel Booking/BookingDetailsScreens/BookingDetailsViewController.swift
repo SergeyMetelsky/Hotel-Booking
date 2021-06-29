@@ -9,6 +9,9 @@ import UIKit
 
 class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
     
+    var formatter = DateFormatter()
+    
+    
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var nameTextField: UITextField!
     
@@ -31,6 +34,15 @@ class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(checkInNotificationFromCalendarViewController(_:)),
+                                               name: checkInCalendarViewControllerNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(checkOutNotificationFromCalendarViewController(_:)),
+                                               name: checkOutCalendarViewControllerNotification,
+                                               object: nil)
         
         nameView.setupShadowAndRadius()
         phoneView.setupShadowAndRadius()
@@ -57,12 +69,13 @@ class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
         
         peopleTextField.addTarget(self, action: #selector(goToPeopleVC), for: .touchDown)
         roomTextField.addTarget(self, action: #selector(goToRoomsVC), for: .touchDown)
-
+        dataInTextField.addTarget(self, action: #selector(goToCalendarVC), for: .touchDown)
+        dataOutTextField.addTarget(self, action: #selector(goToCalendarVC), for: .touchDown)
+        
+        
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(firstRecognizerClicked(_:)))
         view.addGestureRecognizer(tapRecognizer)
-
-
     }
     
     @objc func goToPeopleVC(textField: UITextField) {
@@ -71,9 +84,35 @@ class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
     @objc func goToRoomsVC(textField: UITextField) {
         performSegue(withIdentifier: "goToRooms", sender: nil)
     }
+    @objc func goToCalendarVC(textField: UITextField) {
+        let sourceTextField = textField.accessibilityIdentifier
+        let destinationVC = storyboard?.instantiateViewController(identifier: "CalendarViewController") as! CalendarViewController
+        
+        switch sourceTextField {
+        case "checkIn":
+            destinationVC.sourceTextField = "checkIn"
+        case "checkOut":
+            destinationVC.sourceTextField = "checkOut"
+        default:
+            return
+        }
+        
+        present(destinationVC, animated: true, completion: nil)
+        //        performSegue(withIdentifier: "goToCalendar", sender: nil)
+    }
     @objc func firstRecognizerClicked(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
-
-    
+    @objc func checkInNotificationFromCalendarViewController(_ notification: Notification) {
+        if let date = notification.object as? Date {
+            formatter.dateFormat = "dd MMM, yyy"
+            dataInTextField.text = "\(formatter.string(from: date))"
+        }
+    }
+    @objc func checkOutNotificationFromCalendarViewController(_ notification: Notification) {
+        if let date = notification.object as? Date {
+            formatter.dateFormat = "dd MMM, yyy"
+            dataOutTextField.text = "\(formatter.string(from: date))"
+        }
+    }
 }

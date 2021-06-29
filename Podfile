@@ -10,6 +10,7 @@ target 'Hotel Booking' do
 pod 'Firebase/Auth'
 pod 'Firebase/RemoteConfig'
 pod 'Firebase/Database'
+pod 'FSCalendar'
 
 end
 
