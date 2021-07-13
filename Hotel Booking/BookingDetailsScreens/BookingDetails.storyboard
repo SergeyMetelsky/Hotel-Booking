@@ -85,9 +85,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="peopleTextFieldPressed:" destination="HFQ-j3-CBW" eventType="editingDidEnd" id="DOJ-cm-4XJ"/>
-                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -127,6 +124,9 @@
                                 <state key="normal" title="Book Now">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="bookNowButtonPressed:" destination="HFQ-j3-CBW" eventType="touchUpInside" id="u3k-zm-GYW"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ubb-GQ-rGM">
                                 <rect key="frame" x="20" y="229.5" width="374" height="50"/>
@@ -197,6 +197,7 @@
                         <segue destination="T4l-NA-CPm" kind="presentation" identifier="goToPeople" modalPresentationStyle="overCurrentContext" id="l5I-7z-C4d"/>
                         <segue destination="Qc8-Lc-H1S" kind="presentation" identifier="goToRooms" modalPresentationStyle="overCurrentContext" id="IUF-co-OfS"/>
                         <segue destination="UgN-Wa-4IC" kind="presentation" identifier="goToCalendar" modalPresentationStyle="overCurrentContext" id="q6V-ic-yo8"/>
+                        <segue destination="cwa-6l-2eZ" kind="show" identifier="goToPaymentCheckoutStoryboard" id="pE1-Iq-VvR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wnq-21-pxJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -386,6 +387,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="slr-as-jOe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3533" y="175"/>
+        </scene>
+        <!--PaymentCheckoutViewController-->
+        <scene sceneID="jNC-mh-KJ4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PaymentCheckout" referencedIdentifier="PaymentCheckoutViewController" id="cwa-6l-2eZ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Ukc-v4-O4f"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1We-2A-reZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1962" y="832"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="lgy-cK-a7q">

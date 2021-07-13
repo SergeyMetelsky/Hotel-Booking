@@ -9,9 +9,11 @@ import UIKit
 
 class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
     
+//    MARK:- Properties
     var formatter = DateFormatter()
+//    let nm = NetworkManager()
     
-    
+    //    MARK:- IBOutlets
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var nameTextField: UITextField!
     
@@ -31,9 +33,14 @@ class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var roomTextField: UITextField!
     
     @IBOutlet weak var bookNowButton: UIButton!
-    
+
+    //    MARK:- LifeCycleController
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        NetworkManagerLocation.fetch(query: "minsk", locale: "ru_RU") { (data) in
+//            print("_____NetworkManager.fetch: \(data)")
+//        }
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(checkInNotificationFromCalendarViewController(_:)),
@@ -86,6 +93,12 @@ class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tapRecognizer)
     }
     
+    //    MARK:- IBActions
+    @IBAction func bookNowButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToPaymentCheckoutStoryboard", sender: nil)
+    }
+    
+    //    MARK:- Functions
     @objc func goToPeopleVC(textField: UITextField) {
         // очиска перед следующим вызовом контроллера заполнения
         peopleTextField.text?.removeAll()

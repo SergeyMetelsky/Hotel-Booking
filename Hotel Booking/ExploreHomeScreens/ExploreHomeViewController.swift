@@ -27,10 +27,15 @@ class ExploreHomeViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var catalog: Catalog = Catalog()
+    var location: Location = Location()
+    var list: List = List()
+
     
     // MARK:- ViewController Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         
         locationView.setupShadowAndRadius()
         dataInView.setupShadowAndRadius()
@@ -48,6 +53,18 @@ class ExploreHomeViewController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+//        NetworkManagerLocation.fetch(query: "minsk", locale: "ru_RU") { [weak self] (location) in
+//            guard let self = self else {return}
+//            self.location = location
+////            self.collectionView.reloadData()
+//        }
+        
+        NetworkManagerList.fetch(destinationId: "118894", locale: "ru_RU") { [weak self] (list) in
+            guard let self = self else {return}
+            self.list = list
+            self.collectionView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,20 +81,25 @@ extension ExploreHomeViewController: UICollectionViewDataSource, UICollectionVie
     
     // количество ячеек задаем
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return catalog.hotels.count
+//        return catalog.hotels.count
+        guard let count = self.list.data?.body?.searchResults?.results?.count else { return 0 }
+        return count
     }
     
     // внешний вид и содержание задаем
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HotelCell", for: indexPath) as! HotelCell
-        let hotel = catalog.hotels[indexPath.item]
+        //        let hotel = catalog.hotels[indexPath.item]
+        guard let hotel = self.list.data?.body?.searchResults?.results?[indexPath.item] else { return cell }
         cell.setupCell(hotel: hotel)
         return cell
     }
     
     //  размер ячейки задаем
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 160, height: 168)
+        //        return CGSize(width: 160, height: 168)
+        return CGSize(width: 160, height: 200)
+        
     }
     
     // отспут между ячейками задаем

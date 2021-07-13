@@ -10,6 +10,8 @@
 		6B336BEC4215E670571E7D51 /* Pods_Hotel_Booking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14108A6FBEBA3B2853198ADB /* Pods_Hotel_Booking.framework */; };
 		A518C109268A1F8200AF5837 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A518C108268A1F8200AF5837 /* Extensions.swift */; };
 		A518C10D268A237100AF5837 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A518C10C268A237100AF5837 /* CalendarViewController.swift */; };
+		A52A03222699719400A8D690 /* NetworkManagerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52A03212699719400A8D690 /* NetworkManagerList.swift */; };
+		A52A032526997A3000A8D690 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52A032426997A3000A8D690 /* List.swift */; };
 		A52E2D8E2664F580003C5E95 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E2D8D2664F580003C5E95 /* PaymentService.swift */; };
 		A5451C2D26835ABE00BBE1FC /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5451C2C26835ABE00BBE1FC /* PeopleViewController.swift */; };
 		A5451C32268366ED00BBE1FC /* BookingDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5451C30268366ED00BBE1FC /* BookingDetailsCell.swift */; };
@@ -37,6 +39,8 @@
 		A577DF6B2666B44A00925863 /* HotelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A577DF692666B44A00925863 /* HotelCell.xib */; };
 		A577DF6E2666B8DE00925863 /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577DF6D2666B8DE00925863 /* Hotel.swift */; };
 		A577DFC02669352E00925863 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577DFBF2669352E00925863 /* NetworkManager.swift */; };
+		A57BA03C2698515300965388 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57BA03B2698515300965388 /* Location.swift */; };
+		A57BA0402698731A00965388 /* NetworkManagerLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57BA03F2698731A00965388 /* NetworkManagerLocation.swift */; };
 		A596EA36264E8217006A0BDB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A596EA35264E8217006A0BDB /* OnboardingViewController.swift */; };
 		A596EA3D264E8467006A0BDB /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A596EA3B264E8467006A0BDB /* OnboardingCollectionViewCell.swift */; };
 		A596EA3E264E8467006A0BDB /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A596EA3C264E8467006A0BDB /* OnboardingCollectionViewCell.xib */; };
@@ -58,6 +62,8 @@
 		67DB887D5AE3577F82C4F748 /* Pods-Hotel Booking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hotel Booking.release.xcconfig"; path = "Target Support Files/Pods-Hotel Booking/Pods-Hotel Booking.release.xcconfig"; sourceTree = "<group>"; };
 		A518C108268A1F8200AF5837 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A518C10C268A237100AF5837 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		A52A03212699719400A8D690 /* NetworkManagerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerList.swift; sourceTree = "<group>"; };
+		A52A032426997A3000A8D690 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		A52E2D8D2664F580003C5E95 /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
 		A5451C2C26835ABE00BBE1FC /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		A5451C30268366ED00BBE1FC /* BookingDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailsCell.swift; sourceTree = "<group>"; };
@@ -87,6 +93,8 @@
 		A577DF692666B44A00925863 /* HotelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotelCell.xib; sourceTree = "<group>"; };
 		A577DF6D2666B8DE00925863 /* Hotel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
 		A577DFBF2669352E00925863 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		A57BA03B2698515300965388 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		A57BA03F2698731A00965388 /* NetworkManagerLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerLocation.swift; sourceTree = "<group>"; };
 		A596EA35264E8217006A0BDB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		A596EA3B264E8467006A0BDB /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		A596EA3C264E8467006A0BDB /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -190,6 +198,7 @@
 		A54CAFE7264E7EC300C29522 /* Hotel Booking */ = {
 			isa = PBXGroup;
 			children = (
+				A57BA03A269850CC00965388 /* Models */,
 				A577DFBE266934DC00925863 /* NetworkManager */,
 				A577DFBD26691B9C00925863 /* Extensions */,
 				A596EA44264E9A17006A0BDB /* OnboardingScreens */,
@@ -263,8 +272,19 @@
 			isa = PBXGroup;
 			children = (
 				A577DFBF2669352E00925863 /* NetworkManager.swift */,
+				A57BA03F2698731A00965388 /* NetworkManagerLocation.swift */,
+				A52A03212699719400A8D690 /* NetworkManagerList.swift */,
 			);
 			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		A57BA03A269850CC00965388 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A57BA03B2698515300965388 /* Location.swift */,
+				A52A032426997A3000A8D690 /* List.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A596EA3A264E839F006A0BDB /* OnboardingCells */ = {
@@ -476,11 +496,15 @@
 				A596EA42264E8B9C006A0BDB /* Onboarding.swift in Sources */,
 				A596EA36264E8217006A0BDB /* OnboardingViewController.swift in Sources */,
 				A577DF5B266649C500925863 /* BookingDetailsViewController.swift in Sources */,
+				A52A032526997A3000A8D690 /* List.swift in Sources */,
 				A5451C3E2683762500BBE1FC /* RoomRenter.swift in Sources */,
 				A5BE73DF26614F320033D58F /* PaymentCheckoutTableViewCell.swift in Sources */,
 				A55597D42680F85400B6D664 /* Catalog.swift in Sources */,
+				A52A03222699719400A8D690 /* NetworkManagerList.swift in Sources */,
 				A5451C4A2684F23700BBE1FC /* RoomsViewController.swift in Sources */,
 				A596EA3D264E8467006A0BDB /* OnboardingCollectionViewCell.swift in Sources */,
+				A57BA03C2698515300965388 /* Location.swift in Sources */,
+				A57BA0402698731A00965388 /* NetworkManagerLocation.swift in Sources */,
 				A52E2D8E2664F580003C5E95 /* PaymentService.swift in Sources */,
 				A577DF6126667A2400925863 /* ExploreHomeViewController.swift in Sources */,
 				A5BE73D9266133390033D58F /* PaymentCheckoutViewController.swift in Sources */,

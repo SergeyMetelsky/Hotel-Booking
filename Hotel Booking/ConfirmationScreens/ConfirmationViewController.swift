@@ -16,6 +16,8 @@ class ConfirmationViewController: UIViewController {
 //        navigationItem.title = "Booking"
         goBackButton.layer.cornerRadius = 5
         
+        navigationItem.hidesBackButton = true
+        
     }
     
     @IBAction func goBackButtonPressed(_ sender: UIButton) {

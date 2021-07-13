@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KzE-Gl-bh3">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="597"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="649"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwG-oJ-kCx">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
@@ -205,13 +205,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rh4-Wy-RLt">
-                                                <rect key="frame" x="0.0" y="399" width="414" height="198"/>
+                                                <rect key="frame" x="0.0" y="399" width="414" height="250"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Cie-pX-Xub">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="198"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="198" id="VRe-Y7-j5F"/>
+                                                            <constraint firstAttribute="height" constant="250" id="VRe-Y7-j5F"/>
                                                         </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IZv-zy-9Z4">
                                                             <size key="itemSize" width="128" height="128"/>
@@ -221,7 +221,7 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="SiV-XH-I3m">
-                                                                <rect key="frame" x="0.0" y="35" width="128" height="128"/>
+                                                                <rect key="frame" x="0.0" y="61" width="128" height="128"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pck-DK-7s7">
                                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -233,7 +233,6 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="198" id="0qE-xP-frx"/>
                                                     <constraint firstAttribute="trailing" secondItem="Cie-pX-Xub" secondAttribute="trailing" id="Jda-2l-c0v"/>
                                                     <constraint firstItem="Cie-pX-Xub" firstAttribute="leading" secondItem="Rh4-Wy-RLt" secondAttribute="leading" id="V15-2K-iDb"/>
                                                     <constraint firstItem="Cie-pX-Xub" firstAttribute="top" secondItem="Rh4-Wy-RLt" secondAttribute="top" id="d0g-rf-pH0"/>

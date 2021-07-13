@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// тестовый каталог для отладки ячеек
 class Catalog {
     
     var hotels: [Hotel] = []

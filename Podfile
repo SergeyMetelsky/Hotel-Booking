@@ -11,6 +11,8 @@ pod 'Firebase/Auth'
 pod 'Firebase/RemoteConfig'
 pod 'Firebase/Database'
 pod 'FSCalendar'
+pod 'Alamofire'
+pod 'Kingfisher'
 
 end
 
