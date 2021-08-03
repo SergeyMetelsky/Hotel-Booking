@@ -53,6 +53,7 @@ class RegisterViewController: UIViewController {
         
         registerButton.layer.backgroundColor = UIColor.lightGray.cgColor
         registerButton.layer.cornerRadius = 5
+        registerButton.isEnabled = false
         
         passwordTextField.autocorrectionType = .no
         

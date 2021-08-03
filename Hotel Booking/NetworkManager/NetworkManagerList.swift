@@ -11,6 +11,7 @@ import Alamofire
 class NetworkManagerList {
 
     static func fetch(destinationId: String, locale: String, completion: ((List) -> Void)?) {
+        
 // MARK:- HeaderParameters
         let apiKey = "cccde74e5fmshf0d5cc70da821d5p17e4c8jsnf742d7399cc7"
         let apiHost = "hotels4.p.rapidapi.com"
@@ -103,48 +104,10 @@ class NetworkManagerList {
                     
                     list.data = data
                 }
+                
                 completion?(list)
             }
         }
     }
 }
-
-                    
-                    
-                    
-//                    for item in arrayOfSuggestions {
-//                        var suggestion: Suggestion = Suggestion()
-//                        suggestion.group = item["group"] as? String
-//
-//                        if let arrayOfEntities = item["entities"] as? [[String: Any]] {
-//                            var entitiesArray: [Entity] = []
-//
-//                            for item in arrayOfEntities {
-//                                var entity: Entity = Entity()
-//                                entity.geoId = item["geoId"] as? String
-//                                entity.destinationId = item["destinationId"] as? String
-//                                entity.landmarkCityDestinationId = item["landmarkCityDestinationId"] as? String
-//                                entity.type = item["type"] as? String
-//                                entity.redirectPage = item["redirectPage"] as? String
-//                                entity.latitude = item["latitude"] as? Double
-//                                entity.longitude = item["longitude"] as? Double
-//                                entity.searchDetail = item["searchDetail"] as? String
-//                                entity.caption = item["caption"] as? String
-//                                entity.name = item["name"] as? String
-//                                entitiesArray.append(entity)
-//                            }
-//
-//                            suggestion.entities = entitiesArray
-//                        }
-//
-//                        suggestionsArray.append(suggestion)
-//                    }
-//
-//                    location.suggestions = suggestionsArray
-//                }
-//
-//                guard let suggestions = location.suggestions else { return }
-//                guard let entities = suggestions[0].entities else { return }
-//                guard let destinationId = entities[0].destinationId else { return }
-//                print(destinationId)
 

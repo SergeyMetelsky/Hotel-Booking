@@ -11,7 +11,7 @@
         <!--Booking-->
         <scene sceneID="d51-GS-gYG">
             <objects>
-                <viewController id="HFQ-j3-CBW" customClass="BookingDetailsViewController" customModule="Hotel_Booking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookingDetailsViewController" id="HFQ-j3-CBW" customClass="BookingDetailsViewController" customModule="Hotel_Booking" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lWj-Ta-YtW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

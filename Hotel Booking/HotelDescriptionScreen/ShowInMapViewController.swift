@@ -6,24 +6,26 @@
 //
 
 import UIKit
+import Kingfisher
+
 
 class ShowInMapViewController: UIViewController {
+    var photoUrlString: String = ""
 
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+//        guard let photoUrl = URL(string: photoUrlString) else { return }
+//        self.image.kf.setImage(with: photoUrl)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let photoUrl = URL(string: photoUrlString) else { return }
+        self.imageView.kf.setImage(with: photoUrl)
     }
-    */
-
 }
+
