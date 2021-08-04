@@ -182,10 +182,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bookNowButton" destination="qAM-nC-LUs" id="D7Z-2E-28c"/>
-                        <outlet property="dataInTextField" destination="GUr-YV-XSQ" id="KcI-bZ-wgY"/>
-                        <outlet property="dataInView" destination="lND-0F-xjg" id="zHW-uO-agG"/>
-                        <outlet property="dataOutTextField" destination="BMH-oV-aKf" id="vtr-e9-tnx"/>
-                        <outlet property="dataOutView" destination="9zY-n2-GaC" id="JQ1-i9-QqM"/>
+                        <outlet property="checkInTextField" destination="GUr-YV-XSQ" id="KcI-bZ-wgY"/>
+                        <outlet property="checkInView" destination="lND-0F-xjg" id="zHW-uO-agG"/>
+                        <outlet property="checkOutTextField" destination="BMH-oV-aKf" id="vtr-e9-tnx"/>
+                        <outlet property="checkOutView" destination="9zY-n2-GaC" id="JQ1-i9-QqM"/>
                         <outlet property="nameTextField" destination="9eU-iV-iIl" id="RAk-Fk-fL7"/>
                         <outlet property="nameView" destination="Yhs-xi-YmK" id="drT-Ee-dCk"/>
                         <outlet property="peopleTextField" destination="3aO-Bo-qTE" id="rzE-eL-BRF"/>

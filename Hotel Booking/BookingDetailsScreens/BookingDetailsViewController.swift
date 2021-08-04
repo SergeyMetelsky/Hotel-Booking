@@ -20,11 +20,11 @@ class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var phoneView: UIView!
     @IBOutlet weak var phoneTextField: UITextField!
     
-    @IBOutlet weak var dataInView: UIView!
-    @IBOutlet weak var dataInTextField: UITextField!
+    @IBOutlet weak var checkInView: UIView!
+    @IBOutlet weak var checkInTextField: UITextField!
     
-    @IBOutlet weak var dataOutView: UIView!
-    @IBOutlet weak var dataOutTextField: UITextField!
+    @IBOutlet weak var checkOutView: UIView!
+    @IBOutlet weak var checkOutTextField: UITextField!
     
     @IBOutlet weak var peopleView: UIView!
     @IBOutlet weak var peopleTextField: UITextField!
@@ -42,34 +42,35 @@ class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
 //            print("_____NetworkManager.fetch: \(data)")
 //        }
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(checkInNotificationFromCalendarViewController(_:)),
-                                               name: checkInCalendarViewControllerNotification,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(checkOutNotificationFromCalendarViewController(_:)),
-                                               name: checkOutCalendarViewControllerNotification,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(peopleNotificationFromPeopleViewController(_:)),
-                                               name: peopleViewControllerNotification,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(roomNotificationFromRoomsViewControllerr(_:)),
-                                               name: roomViewControllerNotification,
-                                               object: nil)
+        // передача данных назад через notification
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(checkInNotificationFromCalendarViewController(_:)),
+//                                               name: checkInCalendarViewControllerNotification,
+//                                               object: nil)
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(checkOutNotificationFromCalendarViewController(_:)),
+//                                               name: checkOutCalendarViewControllerNotification,
+//                                               object: nil)
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(peopleNotificationFromPeopleViewController(_:)),
+//                                               name: peopleViewControllerNotification,
+//                                               object: nil)
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(roomNotificationFromRoomsViewControllerr(_:)),
+//                                               name: roomViewControllerNotification,
+//                                               object: nil)
         
         nameView.setupShadowAndRadius()
         phoneView.setupShadowAndRadius()
-        dataInView.setupShadowAndRadius()
-        dataOutView.setupShadowAndRadius()
+        checkInView.setupShadowAndRadius()
+        checkOutView.setupShadowAndRadius()
         peopleView.setupShadowAndRadius()
         roomView.setupShadowAndRadius()
         
         nameTextField.setupLeftImage(imageName: "name Icon")
         phoneTextField.setupLeftImage(imageName: "phone Icon")
-        dataInTextField.setupLeftImage(imageName: "data Icon")
-        dataOutTextField.setupLeftImage(imageName: "data Icon")
+        checkInTextField.setupLeftImage(imageName: "data Icon")
+        checkOutTextField.setupLeftImage(imageName: "data Icon")
         peopleTextField.setupLeftImage(imageName: "people Icon")
         roomTextField.setupLeftImage(imageName: "room Icon")
         
@@ -77,15 +78,17 @@ class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
         
         nameTextField.delegate = self
         phoneTextField.delegate = self
-        dataInTextField.delegate = self
-        dataOutTextField.delegate = self
+        checkInTextField.delegate = self
+        checkOutTextField.delegate = self
         peopleTextField.delegate = self
         roomTextField.delegate = self
         
         peopleTextField.addTarget(self, action: #selector(goToPeopleVC), for: .touchDown)
         roomTextField.addTarget(self, action: #selector(goToRoomsVC), for: .touchDown)
-        dataInTextField.addTarget(self, action: #selector(goToCalendarVC), for: .touchDown)
-        dataOutTextField.addTarget(self, action: #selector(goToCalendarVC), for: .touchDown)
+        checkInTextField.addTarget(self, action: #selector(goToCalendarVC), for: .touchDown)
+        checkOutTextField.addTarget(self, action: #selector(goToCalendarVC), for: .touchDown)
+        
+        formatter.dateFormat = "dd MMM, yyy"
         
         
         
@@ -116,31 +119,37 @@ class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
         switch sourceTextField {
         case "checkIn":
             destinationVC.sourceTextField = "checkIn"
+            destinationVC.checkInDateClosure = { self.checkInTextField.text = "\(self.formatter.string(from: $0))"}
         case "checkOut":
             destinationVC.sourceTextField = "checkOut"
+            destinationVC.checkOutDateClosure = { self.checkOutTextField.text = "\(self.formatter.string(from: $0))"}
         default:
             return
         }
         
         destinationVC.modalPresentationStyle = .overCurrentContext
         present(destinationVC, animated: true, completion: nil)
-        //        performSegue(withIdentifier: "goToCalendar", sender: nil)
     }
+    
     @objc func firstRecognizerClicked(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
-    @objc func checkInNotificationFromCalendarViewController(_ notification: Notification) {
-        if let date = notification.object as? Date {
-            formatter.dateFormat = "dd MMM, yyy"
-            dataInTextField.text = "\(formatter.string(from: date))"
-        }
-    }
-    @objc func checkOutNotificationFromCalendarViewController(_ notification: Notification) {
-        if let date = notification.object as? Date {
-            formatter.dateFormat = "dd MMM, yyy"
-            dataOutTextField.text = "\(formatter.string(from: date))"
-        }
-    }
+    
+    // передача данных назад через notification
+//    @objc func checkInNotificationFromCalendarViewController(_ notification: Notification) {
+//        if let date = notification.object as? Date {
+//            formatter.dateFormat = "dd MMM, yyy"
+//            dataInTextField.text = "\(formatter.string(from: date))"
+//        }
+//    }
+//
+//    @objc func checkOutNotificationFromCalendarViewController(_ notification: Notification) {
+//        if let date = notification.object as? Date {
+//            formatter.dateFormat = "dd MMM, yyy"
+//            dataOutTextField.text = "\(formatter.string(from: date))"
+//        }
+//    }
+    
     @objc func peopleNotificationFromPeopleViewController(_ notification: Notification) {
         guard let roomRenter = notification.object as? RoomRenter else { return }
         for renter in roomRenter.roomRenters {

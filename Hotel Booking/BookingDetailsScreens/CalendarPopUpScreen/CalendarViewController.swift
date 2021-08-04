@@ -8,8 +8,9 @@
 import UIKit
 import FSCalendar
 
-let checkInCalendarViewControllerNotification = NSNotification.Name(rawValue: "checkInCalendarViewControllerNotification")
-let checkOutCalendarViewControllerNotification = NSNotification.Name(rawValue: "checkOutCalendarViewControllerNotification")
+// передача данных назад через notification
+//let checkInCalendarViewControllerNotification = NSNotification.Name(rawValue: "checkInCalendarViewControllerNotification")
+//let checkOutCalendarViewControllerNotification = NSNotification.Name(rawValue: "checkOutCalendarViewControllerNotification")
 
 
 class CalendarViewController: UIViewController {
@@ -17,7 +18,9 @@ class CalendarViewController: UIViewController {
     //   MARK:- Properties
     var formatter = DateFormatter()
     var checkInDate: Date?
+    var checkInDateClosure: ((Date) -> ())?
     var checkOutDate: Date?
+    var checkOutDateClosure: ((Date) -> ())?
     var sourceTextField: String?
     
     //   MARK:- IBOutlets
@@ -47,15 +50,18 @@ class CalendarViewController: UIViewController {
         switch sourceTextField {
         case "checkIn":
             guard let checkInDate = checkInDate else { return }
-            NotificationCenter.default.post(name: checkInCalendarViewControllerNotification, object: checkInDate)
+            checkInDateClosure?(checkInDate)
+            // передача данных назад через notification
+//            NotificationCenter.default.post(name: checkInCalendarViewControllerNotification, object: checkInDate)
         case "checkOut":
             guard let checkOutDate = checkOutDate else { return }
-            NotificationCenter.default.post(name: checkOutCalendarViewControllerNotification, object: checkOutDate)
+            checkOutDateClosure?(checkOutDate)
+            // передача данных назад через notification
+//            NotificationCenter.default.post(name: checkOutCalendarViewControllerNotification, object: checkOutDate)
         default:
             return
         }
-        //        guard let checkInDate = checkInDate else { return }
-        //        NotificationCenter.default.post(name: checkInCalendarViewControllerNotification, object: checkInDate)
+
         dismiss(animated: true, completion: nil)
     }
 }
