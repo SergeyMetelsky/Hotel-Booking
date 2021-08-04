@@ -7,14 +7,16 @@
 
 import UIKit
 
-let roomViewControllerNotification = NSNotification.Name(rawValue: "roomleViewControllerNotification")
+// передача данных назад через notification
+//let roomViewControllerNotification = NSNotification.Name(rawValue: "roomleViewControllerNotification")
 
 class RoomsViewController: UIViewController {
+    var bookingRoom: BookingRoom = BookingRoom()
+    var bookingRoomClosure: ((BookingRoom) -> ())?
     
     @IBOutlet weak var roomsTableView: UITableView!
     @IBOutlet weak var contentView: UIView!
     
-    var bookingRoom: BookingRoom = BookingRoom()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +34,12 @@ class RoomsViewController: UIViewController {
     }
     
     @IBAction func donePressed(_ sender: UIButton) {
-        // если польщователь не заполнил поля то кнопка не будет работать
+        // если пользователь не заполнил поля то кнопка не будет работать
         for room in bookingRoom.bookingRooms {
             if room.quantity != 0 {
-                NotificationCenter.default.post(name: roomViewControllerNotification, object: bookingRoom)
+                // передача данных назад через notification
+//                NotificationCenter.default.post(name: roomViewControllerNotification, object: bookingRoom)
+                bookingRoomClosure?(bookingRoom)
                 dismiss(animated: true, completion: nil)
                 break
             }

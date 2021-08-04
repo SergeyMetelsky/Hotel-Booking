@@ -308,7 +308,7 @@
         <!--Rooms View Controller-->
         <scene sceneID="MHt-Lo-MFo">
             <objects>
-                <viewController id="Qc8-Lc-H1S" customClass="RoomsViewController" customModule="Hotel_Booking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoomsViewController" id="Qc8-Lc-H1S" customClass="RoomsViewController" customModule="Hotel_Booking" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NZN-1l-mUQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
