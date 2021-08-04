@@ -22,11 +22,4 @@ class RoomRenter {
         let roomRenterCategory4 = Renter(name: "Infants", description: "under 2 years", quantity: 0)
         self.roomRenters = [roomRenterCategory1, roomRenterCategory2, roomRenterCategory3, roomRenterCategory4]
     }
-    
-//    var roomRenters: [Renter] = [Renter(category: "Adult", age: "16+ year", quantity: 0),
-//                                 Renter(category: "Teens", age: "12-15 years", quantity: 0),
-//                                 Renter(category: "Children", age: "2-11 years", quantity: 0),
-//                                 Renter(category: "Infants", age: "under 2 years", quantity: 0)
-//    ]
-    
 }

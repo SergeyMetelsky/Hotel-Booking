@@ -7,19 +7,20 @@
 
 import UIKit
 
-let peopleViewControllerNotification = NSNotification.Name(rawValue: "peopleViewControllerNotification")
+// передача данных назад через notification
+//let peopleViewControllerNotification = NSNotification.Name(rawValue: "peopleViewControllerNotification")
 
 class PeopleViewController: UIViewController {
+    var roomRenter: RoomRenter = RoomRenter()
+    var roomRenterClosure: ((RoomRenter) -> ())?
     
     @IBOutlet weak var peopleTableView: UITableView!
     @IBOutlet weak var contentView: UIView!
     
-    var roomRenter: RoomRenter = RoomRenter()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        self.navigationItem.title = ""
-        
         self.peopleTableView.register(UINib(nibName: "BookingDetailsCell", bundle: nil), forCellReuseIdentifier: "BookingDetailsCell")
         self.peopleTableView.dataSource = self
         self.peopleTableView.delegate = self
@@ -32,14 +33,17 @@ class PeopleViewController: UIViewController {
     }
     
     @IBAction func donePressed(_ sender: UIButton) {
-        // если польщователь не заполнил поля то кнопка не будет работать
+        // если пользователь не заполнил поля то кнопка не будет работать
         for renter in roomRenter.roomRenters {
             if renter.quantity != 0 {
-                NotificationCenter.default.post(name: peopleViewControllerNotification, object: roomRenter)
+                // передача данных назад через notification
+//                NotificationCenter.default.post(name: peopleViewControllerNotification, object: roomRenter)
+                roomRenterClosure?(roomRenter)
                 dismiss(animated: true, completion: nil)
                 break
             }
         }
+        
         return
     }
 }
