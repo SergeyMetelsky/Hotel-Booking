@@ -13,6 +13,7 @@ import UIKit
 class PeopleViewController: UIViewController {
     var roomRenter: RoomRenter = RoomRenter()
     var roomRenterClosure: ((RoomRenter) -> ())?
+    var roomRenterStringClosure: ((String) -> ())?
     
     @IBOutlet weak var peopleTableView: UITableView!
     @IBOutlet weak var contentView: UIView!
@@ -33,18 +34,30 @@ class PeopleViewController: UIViewController {
     }
     
     @IBAction func donePressed(_ sender: UIButton) {
+        let roomRenterString = createRoomRenterString(roomRenter: self.roomRenter)
+        
         // если пользователь не заполнил поля то кнопка не будет работать
+        if roomRenterString == "" {
+            return
+        } else {
+            roomRenterStringClosure?(roomRenterString)
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func createRoomRenterString(roomRenter: RoomRenter) -> String {
+        var peopleText: String = ""
         for renter in roomRenter.roomRenters {
             if renter.quantity != 0 {
-                // передача данных назад через notification
-//                NotificationCenter.default.post(name: peopleViewControllerNotification, object: roomRenter)
-                roomRenterClosure?(roomRenter)
-                dismiss(animated: true, completion: nil)
-                break
+                if peopleText == "" {
+                    peopleText += "\(renter.quantity) \(renter.name)"
+                } else {
+                    peopleText += ", \(renter.quantity) \(renter.name)"
+                }
             }
         }
         
-        return
+        return peopleText
     }
 }
 

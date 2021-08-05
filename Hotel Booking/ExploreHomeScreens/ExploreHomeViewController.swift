@@ -64,6 +64,10 @@ class ExploreHomeViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(firstRecognizerClicked(_:)))
+        tapRecognizer.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapRecognizer)
+        
        // MARK:- Поисковой запрос. Выдает различные варианты ответов
 //        NetworkManagerLocation.fetch(query: "minsk", locale: "ru_RU") { [weak self] (location) in
 //            guard let self = self else {return}
@@ -73,7 +77,7 @@ class ExploreHomeViewController: UIViewController {
         
         // MARK:- Запрос списка отелей в соответствии с выбранным поисковым запросом
         NetworkManagerList.fetch(destinationId: "118894", locale: "ru_RU") { [weak self] (list) in
-            guard let self = self else {return}
+            guard let self = self else { return }
             self.list = list
             self.collectionView.reloadData()
         }
@@ -85,8 +89,45 @@ class ExploreHomeViewController: UIViewController {
     }
     
     // MARK:- IBActions
+    @IBAction func calendarButtonPressed(_ sender: UIButton) {
+        let sourceTextField = sender.tag
+        let storyboard = UIStoryboard(name: "BookingDetails", bundle: nil)
+        let destinationVC = storyboard.instantiateViewController(identifier: "CalendarViewController") as! CalendarViewController
+        
+        switch sourceTextField {
+        case 1:
+            destinationVC.sourceTextField = "checkIn"
+            destinationVC.checkInDateClosure = { [weak self] in
+                guard let self = self else { return }
+                self.checkInTextField.text = "\(self.formatter.string(from: $0))"}
+        case 2:
+            destinationVC.sourceTextField = "checkOut"
+            destinationVC.checkOutDateClosure = { [weak self] in
+                guard let self = self else { return }
+                self.checkOutTextField.text = "\(self.formatter.string(from: $0))"}
+        default:
+            return
+        }
+        
+        destinationVC.modalPresentationStyle = .overCurrentContext
+        present(destinationVC, animated: true, completion: nil)
+    }
+        
+    @IBAction func peopleButtonPressed(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "BookingDetails", bundle: nil)
+        let destinationVC = storyboard.instantiateViewController(identifier: "PeopleViewController") as! PeopleViewController
+        destinationVC.modalPresentationStyle = .overCurrentContext
+        destinationVC.roomRenterStringClosure = { [weak self] in
+            guard let self = self else { return }
+            self.peopleTextField.text = $0
+        }
+
+        present(destinationVC, animated: true, completion: nil)
+    }
+    
     @IBAction func unwingToExploreHomeScreen(_ sender: UIStoryboardSegue) {
     }
+    
     @IBAction func viewAllButtonPressed(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "TopHotels", bundle: nil)
 //        guard let destinationVC = storyboard.instantiateViewController(identifier: "TopHotelsViewController") as? TopHotelsViewController else { return }
@@ -98,7 +139,7 @@ class ExploreHomeViewController: UIViewController {
     }
 }
 
-extension ExploreHomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension ExploreHomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
     // количество ячеек задаем
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -137,5 +178,14 @@ extension ExploreHomeViewController: UICollectionViewDataSource, UICollectionVie
         navigationController?.pushViewController(destinationVC, animated: true)
 //        show(destinationVC, sender: nil)
     }
+    
+    @objc func firstRecognizerClicked(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.view.endEditing(true)
+//    }
 }
 
+ 

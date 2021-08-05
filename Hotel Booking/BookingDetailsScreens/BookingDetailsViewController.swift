@@ -104,53 +104,28 @@ class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
     //    MARK:- Functions
     @objc func goToPeopleVC(textField: UITextField) {
         // очиска перед следующим вызовом контроллера заполнения
-        peopleTextField.text?.removeAll()
-//        performSegue(withIdentifier: "goToPeople", sender: nil)
+//        peopleTextField.text?.removeAll()
         let destinationVC = storyboard?.instantiateViewController(identifier: "PeopleViewController") as! PeopleViewController
         destinationVC.modalPresentationStyle = .overCurrentContext
-        destinationVC.roomRenterClosure = { [weak self] in
+        destinationVC.roomRenterStringClosure = { [weak self] in
             guard let self = self else { return }
-            var peopleText = ""
-            for renter in $0.roomRenters {
-                if renter.quantity != 0 {
-                    if peopleText == "" {
-                        peopleText += "\(renter.quantity) \(renter.name)"
-                    } else {
-                        peopleText += ", \(renter.quantity) \(renter.name)"
-                    }
-                }
-            }
-            
-            self.peopleTextField.text = peopleText
+            self.peopleTextField.text = $0
         }
         
         present(destinationVC, animated: true, completion: nil)
     }
     
     @objc func goToRoomsVC(textField: UITextField) {
-        // очиска перед следующим вызовом контроллера заполнения
-        roomTextField.text?.removeAll()
-//        performSegue(withIdentifier: "goToRooms", sender: nil)
         let destinationVC = storyboard?.instantiateViewController(identifier: "RoomsViewController") as! RoomsViewController
         destinationVC.modalPresentationStyle = .overCurrentContext
-        destinationVC.bookingRoomClosure = { [weak self] in
+        destinationVC.bookingRoomStringClosure = { [weak self] in
             guard let self = self else { return }
-            var roomText: String = ""
-            for room in $0.bookingRooms {
-                if room.quantity != 0 {
-                    if roomText == "" {
-                        roomText += "\(room.quantity) \(room.name)"
-                    } else {
-                        roomText += ", \(room.quantity) \(room.name)"
-                    }
-                }
-            }
-            
-            self.roomTextField.text = roomText
+            self.roomTextField.text = $0
         }
         
         present(destinationVC, animated: true, completion: nil)
     }
+    
     @objc func goToCalendarVC(textField: UITextField) {
         let sourceTextField = textField.accessibilityIdentifier
         let destinationVC = storyboard?.instantiateViewController(identifier: "CalendarViewController") as! CalendarViewController
@@ -179,43 +154,45 @@ class BookingDetailsViewController: UIViewController, UITextFieldDelegate {
     }
     
     // передача данных назад через notification
-//    @objc func checkInNotificationFromCalendarViewController(_ notification: Notification) {
-//        if let date = notification.object as? Date {
-//            formatter.dateFormat = "dd MMM, yyy"
-//            dataInTextField.text = "\(formatter.string(from: date))"
-//        }
-//    }
-//
-//    @objc func checkOutNotificationFromCalendarViewController(_ notification: Notification) {
-//        if let date = notification.object as? Date {
-//            formatter.dateFormat = "dd MMM, yyy"
-//            dataOutTextField.text = "\(formatter.string(from: date))"
-//        }
-//    }
-//
-//    @objc func peopleNotificationFromPeopleViewController(_ notification: Notification) {
-//        guard let roomRenter = notification.object as? RoomRenter else { return }
-//        for renter in roomRenter.roomRenters {
-//            if renter.quantity != 0 {
-//                if peopleTextField.text == "" {
-//                    peopleTextField.text! += "\(renter.quantity) \(renter.name)"
-//                } else {
-//                    peopleTextField.text! += ", \(renter.quantity) \(renter.name)"
-//                }
-//            }
-//        }
-//    }
-//
-//    @objc func roomNotificationFromRoomsViewControllerr(_ notification: Notification) {
-//        guard let bookingRoom = notification.object as? BookingRoom else { return }
-//        for room in bookingRoom.bookingRooms {
-//            if room.quantity != 0 {
-//                if roomTextField.text == "" {
-//                    roomTextField.text! += "\(room.quantity) \(room.name)"
-//                } else {
-//                    roomTextField.text! += ", \(room.quantity) \(room.name)"
-//                }
-//            }
-//        }
-//    }
+    
+    
+    //    @objc func checkInNotificationFromCalendarViewController(_ notification: Notification) {
+    //        if let date = notification.object as? Date {
+    //            formatter.dateFormat = "dd MMM, yyy"
+    //            dataInTextField.text = "\(formatter.string(from: date))"
+    //        }
+    //    }
+    //
+    //    @objc func checkOutNotificationFromCalendarViewController(_ notification: Notification) {
+    //        if let date = notification.object as? Date {
+    //            formatter.dateFormat = "dd MMM, yyy"
+    //            dataOutTextField.text = "\(formatter.string(from: date))"
+    //        }
+    //    }
+    //
+    //    @objc func peopleNotificationFromPeopleViewController(_ notification: Notification) {
+    //        guard let roomRenter = notification.object as? RoomRenter else { return }
+    //        for renter in roomRenter.roomRenters {
+    //            if renter.quantity != 0 {
+    //                if peopleTextField.text == "" {
+    //                    peopleTextField.text! += "\(renter.quantity) \(renter.name)"
+    //                } else {
+    //                    peopleTextField.text! += ", \(renter.quantity) \(renter.name)"
+    //                }
+    //            }
+    //        }
+    //    }
+    //
+    //    @objc func roomNotificationFromRoomsViewControllerr(_ notification: Notification) {
+    //        guard let bookingRoom = notification.object as? BookingRoom else { return }
+    //        for room in bookingRoom.bookingRooms {
+    //            if room.quantity != 0 {
+    //                if roomTextField.text == "" {
+    //                    roomTextField.text! += "\(room.quantity) \(room.name)"
+    //                } else {
+    //                    roomTextField.text! += ", \(room.quantity) \(room.name)"
+    //                }
+    //            }
+    //        }
+    //    }
 }

@@ -64,14 +64,24 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwH-Hk-paZ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                                                <connections>
+                                                                    <action selector="calendarButtonPressed:" destination="fbS-x4-ioW" eventType="touchUpInside" id="Kye-gZ-hav"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="3eU-AP-Xr1"/>
                                                             <constraint firstAttribute="bottom" secondItem="CzI-WE-xul" secondAttribute="bottom" id="CVl-su-9yN"/>
+                                                            <constraint firstItem="UwH-Hk-paZ" firstAttribute="leading" secondItem="cAg-0Q-c3j" secondAttribute="leading" id="LvZ-PF-Ity"/>
+                                                            <constraint firstItem="UwH-Hk-paZ" firstAttribute="top" secondItem="cAg-0Q-c3j" secondAttribute="top" id="QXX-8y-WJL"/>
                                                             <constraint firstAttribute="trailing" secondItem="CzI-WE-xul" secondAttribute="trailing" id="QfD-jC-ZS9"/>
                                                             <constraint firstItem="CzI-WE-xul" firstAttribute="leading" secondItem="cAg-0Q-c3j" secondAttribute="leading" id="RuE-ZK-g6d"/>
                                                             <constraint firstItem="CzI-WE-xul" firstAttribute="top" secondItem="cAg-0Q-c3j" secondAttribute="top" id="SFt-4s-7nB"/>
+                                                            <constraint firstAttribute="bottom" secondItem="UwH-Hk-paZ" secondAttribute="bottom" id="bRg-R4-t32"/>
+                                                            <constraint firstAttribute="trailing" secondItem="UwH-Hk-paZ" secondAttribute="trailing" id="fbd-uN-G8s"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -94,14 +104,24 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1e-rl-tF7">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                                                <connections>
+                                                                    <action selector="calendarButtonPressed:" destination="fbS-x4-ioW" eventType="touchUpInside" id="ycI-Cu-0SC"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
+                                                            <constraint firstItem="Q1e-rl-tF7" firstAttribute="leading" secondItem="SSi-6o-igU" secondAttribute="leading" id="3Q0-nW-azI"/>
                                                             <constraint firstItem="YLT-Ak-xmN" firstAttribute="top" secondItem="SSi-6o-igU" secondAttribute="top" id="70m-e2-HkI"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Q1e-rl-tF7" secondAttribute="trailing" id="76s-th-1yr"/>
                                                             <constraint firstItem="YLT-Ak-xmN" firstAttribute="leading" secondItem="SSi-6o-igU" secondAttribute="leading" id="GNF-5G-yxj"/>
                                                             <constraint firstAttribute="trailing" secondItem="YLT-Ak-xmN" secondAttribute="trailing" id="Qk2-iV-UyS"/>
                                                             <constraint firstAttribute="height" constant="50" id="TF3-6a-Rg8"/>
                                                             <constraint firstAttribute="bottom" secondItem="YLT-Ak-xmN" secondAttribute="bottom" id="bBj-9a-Lkl"/>
+                                                            <constraint firstItem="Q1e-rl-tF7" firstAttribute="top" secondItem="SSi-6o-igU" secondAttribute="top" id="gml-aQ-7Ww"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Q1e-rl-tF7" secondAttribute="bottom" id="qES-eS-3Yi"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -124,12 +144,22 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWe-Uu-dad">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                                                <connections>
+                                                                    <action selector="peopleButtonPressed:" destination="fbS-x4-ioW" eventType="touchUpInside" id="B4g-rT-NVD"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="Vrz-uJ-1uK" firstAttribute="leading" secondItem="lYm-Cd-tfS" secondAttribute="leading" id="0OR-vb-FPz"/>
                                                             <constraint firstAttribute="bottom" secondItem="Vrz-uJ-1uK" secondAttribute="bottom" id="7wl-gr-MCI"/>
                                                             <constraint firstItem="Vrz-uJ-1uK" firstAttribute="top" secondItem="lYm-Cd-tfS" secondAttribute="top" id="Elw-Id-st2"/>
+                                                            <constraint firstAttribute="trailing" secondItem="RWe-Uu-dad" secondAttribute="trailing" id="JZw-Dn-veT"/>
+                                                            <constraint firstAttribute="bottom" secondItem="RWe-Uu-dad" secondAttribute="bottom" id="ZEQ-aY-30v"/>
+                                                            <constraint firstItem="RWe-Uu-dad" firstAttribute="top" secondItem="lYm-Cd-tfS" secondAttribute="top" id="ZdX-dX-A3Y"/>
+                                                            <constraint firstItem="RWe-Uu-dad" firstAttribute="leading" secondItem="lYm-Cd-tfS" secondAttribute="leading" id="c3K-o3-7m5"/>
                                                             <constraint firstAttribute="height" constant="50" id="ibD-2U-FPd"/>
                                                             <constraint firstAttribute="trailing" secondItem="Vrz-uJ-1uK" secondAttribute="trailing" id="vU4-tS-I27"/>
                                                         </constraints>
@@ -281,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvh-gq-AEg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2915.9420289855075" y="195.53571428571428"/>
+            <point key="canvasLocation" x="2912" y="196"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="t5g-hv-nkS">

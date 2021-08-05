@@ -12,6 +12,7 @@ import UIKit
 
 class RoomsViewController: UIViewController {
     var bookingRoom: BookingRoom = BookingRoom()
+    var bookingRoomStringClosure: ((String) -> ())?
     var bookingRoomClosure: ((BookingRoom) -> ())?
     
     @IBOutlet weak var roomsTableView: UITableView!
@@ -34,17 +35,30 @@ class RoomsViewController: UIViewController {
     }
     
     @IBAction func donePressed(_ sender: UIButton) {
+        let bookingRoomString = createBookingRoomString(bookingRoom: self.bookingRoom)
+        
         // если пользователь не заполнил поля то кнопка не будет работать
+        if bookingRoomString == "" {
+            return
+        } else {
+            bookingRoomStringClosure?(bookingRoomString)
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func createBookingRoomString(bookingRoom: BookingRoom) -> String {
+        var roomText: String = ""
         for room in bookingRoom.bookingRooms {
             if room.quantity != 0 {
-                // передача данных назад через notification
-//                NotificationCenter.default.post(name: roomViewControllerNotification, object: bookingRoom)
-                bookingRoomClosure?(bookingRoom)
-                dismiss(animated: true, completion: nil)
-                break
+                if roomText == "" {
+                    roomText += "\(room.quantity) \(room.name)"
+                } else {
+                    roomText += ", \(room.quantity) \(room.name)"
+                }
             }
         }
-        return
+        
+        return roomText
     }
 }
 

@@ -194,9 +194,6 @@
                         <outlet property="phoneView" destination="Ubb-GQ-rGM" id="XGw-2Y-Zs7"/>
                         <outlet property="roomTextField" destination="R2x-2f-8zc" id="Bdp-8i-KM0"/>
                         <outlet property="roomView" destination="sGO-dX-K1x" id="GCb-tw-cXX"/>
-                        <segue destination="T4l-NA-CPm" kind="presentation" identifier="goToPeople" modalPresentationStyle="overCurrentContext" id="l5I-7z-C4d"/>
-                        <segue destination="Qc8-Lc-H1S" kind="presentation" identifier="goToRooms" modalPresentationStyle="overCurrentContext" id="IUF-co-OfS"/>
-                        <segue destination="UgN-Wa-4IC" kind="presentation" identifier="goToCalendar" modalPresentationStyle="overCurrentContext" id="q6V-ic-yo8"/>
                         <segue destination="cwa-6l-2eZ" kind="show" identifier="goToPaymentCheckoutStoryboard" id="pE1-Iq-VvR"/>
                     </connections>
                 </viewController>
