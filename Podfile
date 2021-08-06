@@ -13,6 +13,7 @@ pod 'Firebase/Database'
 pod 'FSCalendar'
 pod 'Alamofire'
 pod 'Kingfisher'
+pod 'SwiftConfettiView'
 
 end
 
