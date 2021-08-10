@@ -9,8 +9,7 @@ import UIKit
 import Kingfisher
 
 class TopHotelsCell: UICollectionViewCell {
-    var i: Int = 1
-    var bookNowButtonPressed: (() -> (Bool))?
+    var bookNowButtonPressed: (() -> ())?
 
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var view: UIView!
@@ -31,38 +30,39 @@ class TopHotelsCell: UICollectionViewCell {
     }
     
     @IBAction func markButtonPressed(_ sender: UIButton) {
-        guard let pressed = bookNowButtonPressed?() else { return }
-        
-        if pressed {
-            markButton.setImage(UIImage(named: "BookMarkColor"), for: UIControl.State.normal)
-        } else {
-            markButton.setImage(UIImage(named: "BookMarkBorder"), for: UIControl.State.normal)
-        }
-//        markButton.setImage(UIImage(named: "BookMarkColor"), for: UIControl.State.normal)
+//        guard let pressed = bookNowButtonPressed?() else { return }
+//
+//        if pressed {
+//            markButton.setImage(UIImage(named: "BookMarkColor"), for: UIControl.State.normal)
+//        } else {
+//            markButton.setImage(UIImage(named: "BookMarkBorder"), for: UIControl.State.normal)
+//        }
     }
     
     @IBAction func bookNowButtonPressed(_ sender: UIButton) {
+        bookNowButtonPressed?()
     }
     
-    
-    func setupCell(hotel: Hotel) {
-        self.imageView.image = hotel.image
-        self.nameLabel.text = hotel.name
-        self.priceLabel.text = "$ \(hotel.price)"
-    }
-    
-//    func setupCell(hotel: Result) {
-//        if let photoUrlString = hotel.optimizedThumbUrls?.srpDesktop {
-//            if let photoUrl = URL(string: photoUrlString) {
-//                self.imageView.kf.setImage(with: photoUrl)
-//            }
-//        }
-//
+    //MARK:- использовать данные из сети
+//    func setupCell(hotel: Hotel) {
+//        self.imageView.image = hotel.image
 //        self.nameLabel.text = hotel.name
-//        self.priceLabel.text = hotel.ratePlan?.price?.current
-//        if let rating = hotel.starRating {
-//            self.ratingLabel.text = String(rating)
-//        }
+//        self.priceLabel.text = "$ \(hotel.price)"
 //    }
     
+    
+    //MARK:- использовать локальные данные 
+    func setupCell(hotel: Result) {
+        if let photoUrlString = hotel.optimizedThumbUrls?.srpDesktop {
+            if let photoUrl = URL(string: photoUrlString) {
+                self.imageView.kf.setImage(with: photoUrl)
+            }
+        }
+
+        self.nameLabel.text = hotel.name
+        self.priceLabel.text = hotel.ratePlan?.price?.current
+        if let rating = hotel.starRating {
+            self.ratingLabel.text = String(rating)
+        }
+    }
 }

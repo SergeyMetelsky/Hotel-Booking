@@ -10,7 +10,7 @@ import Alamofire
 
 class NetworkManagerList {
 
-    static func fetch(destinationId: String, locale: String, completion: ((List) -> Void)?) {
+    static func fetch(pageNumber: Int, pageSize: Int, destinationId: String, locale: String, completion: ((List) -> Void)?) {
         
 // MARK:- HeaderParameters
         let apiKey = "cccde74e5fmshf0d5cc70da821d5p17e4c8jsnf742d7399cc7"
@@ -18,9 +18,9 @@ class NetworkManagerList {
        
 //        // MARK:- RequiredParameters
 //        let adults: Int
-//        let pageNumber: Int
+//        let pageNumber: Int = 1
 //        let desId: String
-//        let pageSize: Int
+//        let pageSize: Int = 25
 //        let checkOut: String
 //        let checkIn: String
 //
@@ -41,7 +41,7 @@ class NetworkManagerList {
             "x-rapidapi-host" : apiHost
         ]
                 
-        let url = "https://\(apiHost)/properties/list?adults1=1&pageNumber=1&destinationId=\(destinationId)&pageSize=25&checkOut=2020-01-15&checkIn=2020-01-08&sortOrder=PRICE&locale=\(locale)&currency=USD"
+        let url = "https://\(apiHost)/properties/list?adults1=1&pageNumber=\(pageNumber)&destinationId=\(destinationId)&pageSize=\(pageSize)&checkOut=2020-01-15&checkIn=2020-01-08&sortOrder=PRICE&locale=\(locale)&currency=USD"
         
         
         AF.request(url, method: .get, headers: headers).responseJSON { (response) in

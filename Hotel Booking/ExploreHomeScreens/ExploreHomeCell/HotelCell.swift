@@ -23,18 +23,19 @@ class HotelCell: UICollectionViewCell {
         backView.setupShadowAndRadius()
     }
     
-    func setupCell(hotel: Hotel) {
-        self.image.image = hotel.image
+    func setupCell(hotel: Result) {
+        guard let photoUrlString = hotel.optimizedThumbUrls?.srpDesktop else { return }
+        guard let photoUrl = URL(string: photoUrlString) else { return }
+        self.image.kf.setImage(with: photoUrl)
         self.nameLabel.text = hotel.name
-        self.priceLabel.text = "$ \(hotel.price)"
+        self.priceLabel.text = hotel.ratePlan?.price?.current
+
     }
     
-//    func setupCell(hotel: Result) {
-//        guard let photoUrlString = hotel.optimizedThumbUrls?.srpDesktop else { return }
-//        guard let photoUrl = URL(string: photoUrlString) else { return }
-//        self.image.kf.setImage(with: photoUrl)
+    
+//    func setupCell(hotel: Hotel) {
+//        self.image.image = hotel.image
 //        self.nameLabel.text = hotel.name
-//        self.priceLabel.text = hotel.ratePlan?.price?.current
-//
+//        self.priceLabel.text = "$ \(hotel.price)"
 //    }
 }

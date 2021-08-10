@@ -76,7 +76,7 @@ class ExploreHomeViewController: UIViewController {
 //        }
         
         // MARK:- Запрос списка отелей в соответствии с выбранным поисковым запросом
-        NetworkManagerList.fetch(destinationId: "118894", locale: "ru_RU") { [weak self] (list) in
+        NetworkManagerList.fetch(pageNumber: 1, pageSize: 25, destinationId: "118894", locale: "ru_RU") { [weak self] (list) in
             guard let self = self else { return }
             self.list = list
             self.collectionView.reloadData()
@@ -131,10 +131,17 @@ class ExploreHomeViewController: UIViewController {
     @IBAction func viewAllButtonPressed(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "TopHotels", bundle: nil)
 //        guard let destinationVC = storyboard.instantiateViewController(identifier: "TopHotelsViewController") as? TopHotelsViewController else { return }
+      
+        // передача данных сразу на первый экран  tab bar
+//        guard let tabBarVC = storyboard.instantiateViewController(identifier: "TabBarController") as? TabBarController else { return }
+//        guard let topHotelsVC = tabBarVC.viewControllers?.first as? TopHotelsViewController else { return }
+//        topHotelsVC.list = self.list
+//        navigationController?.pushViewController(tabBarVC, animated: true)
+
+        // передача данных в tab bar
         guard let destinationVC = storyboard.instantiateViewController(identifier: "TabBarController") as? TabBarController else { return }
-        
-//        destinationVC.list = self.list
-        destinationVC.catalog = self.catalog
+        destinationVC.list = self.list
+        destinationVC.location = self.locationTextField.text
         navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
@@ -143,16 +150,16 @@ extension ExploreHomeViewController: UICollectionViewDataSource, UICollectionVie
     
     // количество ячеек задаем
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return catalog.hotels.count
-//        guard let count = self.list.data?.body?.searchResults?.results?.count else { return 0 }
-//        return count
+//        return catalog.hotels.count
+        guard let count = self.list.data?.body?.searchResults?.results?.count else { return 0 }
+        return count
     }
     
     // внешний вид и содержание задаем
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HotelCell", for: indexPath) as! HotelCell
-                let hotel = catalog.hotels[indexPath.item]
-//        guard let hotel = self.list.data?.body?.searchResults?.results?[indexPath.item] else { return cell }
+//                let hotel = catalog.hotels[indexPath.item]
+        guard let hotel = self.list.data?.body?.searchResults?.results?[indexPath.item] else { return cell }
         cell.setupCell(hotel: hotel)
         return cell
     }

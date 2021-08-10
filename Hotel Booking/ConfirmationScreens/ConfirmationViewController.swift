@@ -22,9 +22,9 @@ class ConfirmationViewController: UIViewController {
 //            CGSize.init(width: 3, height: 3)
             confettiView.type = .image(confettiImage)
             confettiView.colors = [UIColor.red, UIColor.orange, UIColor.systemPink]
-            confettiView.intensity = 0.33
+            confettiView.intensity = 0.7
             confettiView.startConfetti()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
                 guard let self = self else { return }
                 self.confettiView.stopConfetti()
             }

@@ -9,6 +9,8 @@ import UIKit
 
 class TabBarController: UITabBarController {
     var catalog: Catalog?
+    var list: List?
+    var location: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,8 +18,10 @@ class TabBarController: UITabBarController {
         guard let viewControllers = viewControllers else { return }
         
         for viewController in viewControllers {
-            if let topHotelsViewController = viewController as? TopHotelsViewController {
-                topHotelsViewController.catalog = self.catalog
+            if let topHotelsViewController = viewController as? TopHotelsViewController, let list = self.list, let location = self.location {
+//                topHotelsViewController.catalog = self.catalog
+                topHotelsViewController.location = location
+                topHotelsViewController.list = list
             }
         }
         
